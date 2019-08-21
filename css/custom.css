@@ -1,0 +1,9 @@
+h5 { text-transform: uppercase; letter-spacing: .15rem; font-weight: 400; }
+li { margin-bottom: 0; }
+.container { margin: 50px auto 150px auto }
+.instruction { font-weight: bold; }
+@media print
+{
+    .no-print, .no-print * { display: none !important; }
+    .container { margin: 50px auto 50px auto; }
+}

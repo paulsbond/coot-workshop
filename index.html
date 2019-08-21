@@ -1,0 +1,171 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Coot Workshop</title>
+<meta name="author" content="Paul Bond">
+<meta name="description" content="Coot Workshop for the Protein Crystallography Summer School 2019">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/skeleton.css">
+<link rel="stylesheet" href="css/custom.css">
+
+<div class="container">
+
+  <h1>Coot Workshop</h1>
+  <h4>Protein Crystallography Summer School 2019</h4>
+  <p>
+    <a href="https://synergy.st-andrews.ac.uk/proteincrystallography">https://synergy.st-andrews.ac.uk/proteincrystallography</a><br>
+    1st to 7th September 2019 (<a href="https://synergy.st-andrews.ac.uk/proteincrystallography/files/2019/05/Timetable-Summer-School-2019-for-Website.pdf">Programme</a>)<br>
+    University of York
+  </p>
+
+  <ol class="no-print">
+    <li><a href="#1">Introduction</a></li>
+    <li><a href="#2">Starting</a></li>
+    <li><a href="#3">Viewing</a></li>
+    <li><a href="#4">Fixing the protein</a></li>
+    <li><a href="#5">Adding solvent</a></li>
+    <li><a href="#6">Building a peptide</a></li>
+    <li><a href="#7">Adding a ligand</a></li>
+  </ol>
+
+  <h5 id="1">1. Introduction</h5>
+  <p>
+    <i>Coot</i> is a program for macromolecular model building,
+    model completion and validation.
+    In this workshop, we we learn how to use <i>Coot</i> by using it
+    to complete a molecular replacement (MR) solution.
+    The structure we are trying to build is
+    <a href="https://www.ebi.ac.uk/pdbe/entry/pdb/5eg2">5EG2</a>,
+    a human SET7/9 mutant in complex with S-adenosyl-l-homocysteine (SAH) and
+    a 10 residue transcription initiation factor
+    (<a href="https://doi.org/10.1021/acschembio.5b00852">Fick <i>et al.</i> 2016</a>).
+    The data extend to 1.55 &angst; resolution and
+    the A chain is small with only 262 residues.
+  </p>
+  <p>
+    As a homology model, we have chosen
+    <a href="https://www.ebi.ac.uk/pdbe/entry/pdb/1n6a">1N6A</a>.
+    This is an older selenomethionine derivative of human SET7/9
+    solved at 1.7 &angst; resolution
+    (<a href="https://doi.org/10.1093/emboj/cdg025">Kwon <i>et al.</i> 2003</a>).
+    The model was processed using <i>phaser.sculptor</i>,
+    which trims unaligned regions using a sequence alignment
+    and truncates side chains that differ between the model and target.
+    Pruning the MR model was not needed to find a solution in this case
+    as it is so similar, but in general it is good practice.
+    MR was done using <i>phaser</i>
+    through the <i>CCP4i2</i> Basic Molecular Replacement task.
+    This was followed by <i>csymmatch</i>
+    to move the MR solution to the same origin as the deposited structure
+    and finally refinement using <i>REFMAC</i>.
+    The following files from <i>REFMAC</i> are needed for the workshop:
+  </p>
+  <ul>
+    <li>
+      <a href="data/refined_model.mtz">refined_model.mtz</a>
+      - reflection data in MTZ format
+    </li>
+    <li>
+      <a href="data/refined_model.pdb">refined_model.pdb</a>
+      - coordinates in PDB format
+    </li>
+  </ul>
+
+  <h5 id="2">2. Starting</h5>
+  <p class="instruction">>>> Type <code>coot</code> on the command line</p>
+  <p>
+    The <i>Coot</i> window should appear.
+    For this to work, the coot executable should be in your path.
+    If it is not then you need to source one of the CCP4 setup scripts:
+  <p>
+    <pre><code>source ccp4-7.0/bin/ccp4.setup-csh  # if shell is csh/tcsh<br>source ccp4-7.0/bin/ccp4.setup-sh   # if shell is bash</code></pre>
+  </p>
+    Files that you want to open in <i>Coot</i>
+    can also be passed as command line arguments:
+    <pre><code>coot refined_model.pdb refined_mode.mtz</code></pre>
+    PDB and mmCIF format coordinate files can be opened in this way,
+    as well as MTZ files from programs such as <i>REFMAC</i>
+    where the column labels for the 2mFo-DFc and mFo-DFc maps are known.
+    Instead, we will open our files manually.
+  </p>
+  <p class="instruction">>>> Choose <code>File/Open Coordinates...</code></p>
+  <p>
+    A file browser will appear.
+    From this you can select a coordinate file,
+    as well choose how to recentre the view and the new molecule.
+  </p>
+  <p class="instruction">>>> Select <code>refined_model.pdb</code> and click <code>Open</code></p>
+  <p>
+    A window will appear asking you to Fix Nomenclature Errors.
+    This is a common occurence when opening coordinates
+    and is usually because there is a naming convention on symmetrical residues,
+    e.g. which way round OD1 and OD2 are in ASP, that most programs ignore.
+  </p>
+  <p class="instruction">>>> Click <code>Yes</code> to fix nomenclature errors</p>
+  <p>
+    Now we will open the 2mFo-DFc and mFo-DFc maps.
+    Going to <code>File/Auto Open MTZ...</code>
+    is equivalent to opening the MTZ on the command line
+    and will open maps if it recognises which columns to use.
+  </p>
+  <ol>
+    <li>Opening maps</li>
+    <li>Opening coot via i2</li>
+  </ol>
+
+  <h5 id="3">3. Viewing</h5>
+  <ol>
+    <li>Flat vs. spherical surface</li>
+    <li>Panning, zooming, rotating</li>
+    <li>Map scrolling</li>
+    <li>Clipping</li>
+    <li>Molecule display</li>
+    <li>Symmetry</li>
+    <li>Map display</li>
+    <li>Go to atom</li>
+  </ol>
+
+  <h5 id="4">4. Fixing the protein</h5>
+  <ol>
+    <li>Touch on validation (density fit only)</li>
+    <li>Deleting</li>
+    <li>Mutating</li>
+    <li>Rotamers</li>
+    <li>Real space refinement</li>
+    <li>Adding terminal residues</li>
+  </ol>
+
+  <h5 id="5">5. Adding solvent</h5>
+  <ol>
+    <li>Adding solvent molecules</li>
+    <li>Auto find waters</li>
+    <li>Checking waters</li>
+    <li>Manually add waters</li>
+  </ol>
+
+  <h5 id="6">6. Building a peptide</h5>
+  <ol>
+    <li>Skeleton map</li>
+    <li>CA Baton mode</li>
+    <li>Mutate resiude range</li>
+  </ol>
+
+  <h5 id="7">7. Adding a ligand</h5>
+  <ol>
+    <li>Only if Rob isn't doing this part</li>
+  </ol>
+
+  <p>
+    Extra?
+    Opening Coot via i2? Competition to see who gets the lowest R-free?
+    Trying other online tutorials?
+  </p>
+
+  <hr>
+  <p>
+    Paul Bond,
+    University of York,
+    <a href="mailto:paul.bond@york.ac.uk">paul.bond@york.ac.uk</a>
+  </p>
+</div>
