@@ -1,5 +1,6 @@
 h5 { text-transform: uppercase; letter-spacing: .15rem; font-weight: 400; }
 li { margin-bottom: 0; }
+img { display: block; margin: 1rem auto; }
 .container { margin: 50px auto 150px auto }
 .instruction { font-weight: bold; }
 @media print
