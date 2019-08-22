@@ -83,7 +83,9 @@
   </p>
   <p>
     The <i>Coot</i> window should look something like this:
-    <img src="img/window.png" alt="Coot Window">
+  </p>
+  <img src="img/window.png" alt="Coot Window">
+  <p>
     At the top of the screen is the menu bar with File, Edit, Calculate etc.
     Below this is the main toolbar with a button to open the Display Manager.
     Buttons on the main toolbar can be customised
@@ -101,7 +103,7 @@
     as well as MTZ files from programs such as <i>REFMAC</i>
     where the column labels for the 2mFo-DFc and mFo-DFc maps are known.
     Instead, we will open our files manually.
-    Choose <code>File/Open Coordinates...</code>
+    Choose <code>File / Open Coordinates</code>
     (you can also click the folder icon in the main toolbar).
     A file browser will appear.
     From this you can select a coordinate file,
@@ -109,28 +111,28 @@
     Select <code>refined_model.pdb</code> and click <code>Open</code>.
   </p>
   <p>
-    A window will appear asking you to Fix Nomenclature Errors.
-    This is a common occurence when opening coordinates
-    and is usually because there is a naming convention on symmetrical residues,
-    e.g. which way round OD1 and OD2 are in ASP, that most programs ignore.
-    Click <code>Yes</code> to fix nomenclature errors.
+    A window will appear asking you to fix nomenclature errors.
+    This is a common occurence when opening coordinates and is usually because
+    there is an atom naming convention for symmetrical residues,
+    e.g. which way round CD1 and CD2 are in PHE, that most programs ignore.
+    Click <code>Yes</code> to fix them.
   </p>
   <p>
     Now we will open the 2mFo-DFc and mFo-DFc maps.
-    Going to <code>File/Auto Open MTZ...</code>
-    is equivalent to opening the MTZ on the command line
+    Going to <code>File / Auto Open MTZ</code>
+    is equivalent to passing the MTZ on the command line
     and will open both maps if it can work out which columns to use.
     We will open the maps one at a time.
-    Choose <code>File/Open MTZ, mmCIF, fcf or phs...</code>
+    Choose <code>File / Open MTZ, mmCIF, fcf or phs</code>
     to open the file browser.
     Select <code>refined_model.mtz</code> and click <code>Open</code>.
-    A window with the title Column Label Assignment should appear.
+    The following window should appear:
   </p>
   <img src="img/mtz_cols.png" alt="Column Label Assignment">
   <p>
     This window allows you to select
     which amplitude and phase columns to use for the new map.
-    Sensible defaults have been chosen to open the 2mFo-DFc map.
+    Sensible defaults have been chosen for the 2mFo-DFc map.
     In this case there is no need use weights
     because the FWT,PHWT columns are already weighted.
     If you click the <code>Expert Mode?</code> button
@@ -139,31 +141,110 @@
   </p>
   <p>
     Now we will open the mFo-DFc map.
-    Choose <code>File/Open MTZ, mmCIF, fcf or phs...</code> again
+    Choose <code>File / Open MTZ, mmCIF, fcf or phs</code> again
     and open <code>refined_model.mtz</code>.
     Change the <code>Amplitudes</code> column to <code>DELFWT</code>
     and the <code>Phases</code> column to <code>PHDELWT</code>.
     The <code>Is a Difference Map</code> checkbox
     needs to be checked (should happen automatically)
     so that <i>Coot</i> will treat this as a difference map.
-    Click <code>OK</code> to open the mFo-DFc map.
+    Click <code>OK</code>.
   </p>
   <p>
     The maps should be visible as a sphere in the centre of the screen.
-    By default, the 2mFo-DFc is blue and the mFo-DFc (difference) map is
+    By default, the 2mFo-DFc is coloured blue
+    and the mFo-DFc (difference) map is coloured
     green for positive density and red for negative density.
   </p>
   <img src="img/maps.png" alt="2mFo-DFc and mFo-DFc Maps">
 
   <h5 id="3">3. Viewing</h5>
+  <p>
+    The following controls are used to change the view:
+  </p>
+  <table>
+    <thead>
+      <tr><th>Action</th><th>Result</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Left-mouse drag</td><td>Rotate view</td></tr>
+      <tr><td>Ctrl left-mouse drag</td><td>Translate view</td></tr>
+      <tr><td>Right-mouse drag</td><td>Zoom</td></tr>
+      <tr><td>Ctrl right-mouse drag</td><td>Adjust clipping</td></tr>
+      <tr><td>Middle-mouse click</td><td>Centre on atom</td></tr>
+    </tbody>
+  </table>
+  <p>
+    By default, the rotation is done
+    using a virtual trackball with a spherical surface.
+    It depends not only on the direction you are dragging
+    but also where in the view the mouse pointer is.
+    If this feels strange you can try changing it
+    by going to <code>Edit / Preferences</code>,
+    selecting <code>General</code> on the left
+    and choosing the <code>HID</code> tab.
+    The <code>Flat</code> option will change the rotation
+    so that only the direction of dragging matters.
+  </p>
+  <img src="img/trackball.png" alt="Virtual Trackball">
+  <p>
+    Open <code>Display Manager</code> from the main toolbar.
+    This shows lists of all the molecules and maps currently open.
+    You can toggle whether individual molecules and maps are displayed.
+  </p>
+  <img src="img/display_manager.png" alt="Display Manager">
+  <p>
+    The default representation for molecules is
+    <code>Bonds (Colour by Atom)</code>,
+    which is a good representation for model building.
+    However, if we want to look at larger scale features of the model
+    the <code>C-alphas/Backbone</code> representation is useful.
+    For now, un-display both maps
+    and change the molecule representation to <code>Jones' Rainbow</code>.
+    This is a variation of the C-alpha representation
+    where the chain is coloured
+    from blue at the N-terminus to red at the C-terminus.
+    The dotted lines at the C-terminus
+    show us that there are missing residues there.
+  </p>
+  <img src="img/rainbow.png" alt="Jones' Rainbow">
+  <p>
+    When checking if a molecular replacement solution is correct,
+    it is useful to see whether the packing of molecules
+    looks reasonable for a crystal.
+    To control the displaying of symmetry equivalents
+    go to <code>Draw / Cell & Symmetry</code>.
+    The following window should appear:
+  </p>
+  <img src="img/symmetry.png" alt="Cell & Symmetry">
+  <p>
+    Turn the <code>Master Switch</code> to <code>Symmetry On</code>
+    then click the <code>Symmetry by Molecule</code> button
+    to open another window.
+    In the new window change the Display Options
+    for Molecule 0 (the only molecule)
+    to <code>Display as CAs</code> and click <code>OK</code>.
+    Increase the <code>Symmetry Atom Display Radius</code>
+    to <code>80</code> &angst;,
+    change <code>Show Unit Cells?</code> to <code>Yes</code>
+    and click <code>OK</code>.
+    The spacegroup is P 3<sub>2</sub> 2 1.
+    If you rotate the view to look along the C axis of the cell
+    you can see the threefold rotation
+    and long triangular channels that run through the crystal.
+    Also, importantly, the molecule has close contacts with its neighbours
+    that are necessary for crystal formation.
+    Below, the image on the left shows our good MR solution
+    and the image on the right shows a bad MR solution
+    without proper crystal packing.
+  </p>
+  <div class="row">
+    <div class="one-half column"><img src="img/packing_good.png" alt="Good Packing"></div>
+    <div class="one-half column"><img src="img/packing_bad.png" alt="Bad Packing"></div>
+  </div>
   <ol>
-    <li>Flat vs. spherical surface</li>
-    <li>Panning, zooming, rotating</li>
-    <li>Map scrolling</li>
-    <li>Clipping</li>
-    <li>Molecule display</li>
-    <li>Symmetry</li>
     <li>Map display</li>
+    <li>Map scrolling</li>
     <li>Go to atom</li>
   </ol>
 
