@@ -190,7 +190,11 @@
   <p>
     Open <code>Display Manager</code> from the main toolbar.
     This shows lists of all the molecules and maps currently open.
-    You can toggle whether individual molecules and maps are displayed.
+    You can toggle whether individual molecules and maps are displayed
+    and delete them if they are no longer needed.
+    You can also change map properties,
+    such as display style and contour levels,
+    and molecule representations.
   </p>
   <img src="img/display_manager.png" alt="Display Manager">
   <p>
@@ -234,16 +238,34 @@
     and long triangular channels that run through the crystal.
     Also, importantly, the molecule has close contacts with its neighbours
     that are necessary for crystal formation.
-    Below, the image on the left shows our good MR solution
-    and the image on the right shows a bad MR solution
+    Below, the image on the left shows our correct MR solution
+    and the image on the right shows an incorrect MR solution
     without proper crystal packing.
   </p>
   <div class="row">
     <div class="one-half column"><img src="img/packing_good.png" alt="Good Packing"></div>
     <div class="one-half column"><img src="img/packing_bad.png" alt="Bad Packing"></div>
   </div>
+  <p>
+    Another way to tell whether an MR solution is correct
+    is by looking at the density.
+    Go back to <code>Draw / Cell & Symmetry</code>,
+    change the <code>Master Switch</code> to <code>Symmetry Off</code>
+    and <code>Show Unit Cells?</code> to <code>No</code>.
+    Then go back to the <code>Display Manager</code>,
+    change the molecule represtation to <code>Bonds (Colour by Atom)</code>
+    and display both maps.
+    If you move around the edge of the molecule
+    the density should show a clear protein/solvent boundary
+    This won't be the case for an incorrect MR solution.
+    The images below show solvent boundaries
+    for the correct and incorrect solutions.
+  </p>
+  <div class="row">
+    <div class="one-half column"><img src="img/boundary_good.png" alt="Good Solvent Boundary"></div>
+    <div class="one-half column"><img src="img/boundary_bad.png" alt="Bad Solvent Boundary"></div>
+  </div>
   <ol>
-    <li>Map display</li>
     <li>Map scrolling</li>
     <li>Go to atom</li>
   </ol>
