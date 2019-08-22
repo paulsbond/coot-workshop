@@ -32,9 +32,10 @@
   <h5 id="1">1. Introduction</h5>
   <p>
     <i>Coot</i> is a program for macromolecular model building,
-    model completion and validation.
-    In this workshop, we we learn how to use <i>Coot</i> by using it
-    to complete a molecular replacement (MR) solution.
+    model completion and validation
+    (<a href="https://doi.org/10.1107/S0907444910007493">Emsley <i>et al.</i> 2010</a>).
+    This workshop will give step-by-step instructions on
+    how to use <i>Coot</i> to complete a molecular replacement (MR) solution.
     The structure we are trying to build is
     <a href="https://www.ebi.ac.uk/pdbe/entry/pdb/5eg2">5EG2</a>,
     a human SET7/9 mutant in complex with S-adenosyl-l-homocysteine (SAH) and
@@ -59,7 +60,7 @@
     This was followed by <i>csymmatch</i>
     to move the MR solution to the same origin as the deposited structure
     and finally refinement using <i>REFMAC</i>.
-    The following files from <i>REFMAC</i> are needed for the workshop:
+    The following files produced by <i>REFMAC</i> are needed for the workshop:
   </p>
   <ul>
     <li>
@@ -73,8 +74,8 @@
   </ul>
 
   <h5 id="2">2. Starting</h5>
-  <p class="instruction">>>> Type <code>coot</code> on the command line</p>
   <p>
+    Type <code>coot</code> on the command line.
     The <i>Coot</i> window should appear.
     For this to work, the coot executable should be in your path.
     If it is not then you need to source one of the CCP4 setup scripts:
@@ -83,8 +84,14 @@
   <p>
     The <i>Coot</i> window should look something like this:
     <img src="img/window.png" alt="Coot Window">
-    At the top of the screen is the Menu Bar with File, Edit, Calculate etc.
-    Below this is 
+    At the top of the screen is the menu bar with File, Edit, Calculate etc.
+    Below this is the main toolbar with a button to open the Display Manager.
+    Buttons on the main toolbar can be customised
+    by right clicking on the empty space.
+    On the right is the refinement toolbar
+    with the most widely used model building tools.
+    At the bottom of the window is the status bar,
+    which is used to display messages.
   </p>
   <p>
     Files that you want to open in <i>Coot</i>
@@ -94,31 +101,59 @@
     as well as MTZ files from programs such as <i>REFMAC</i>
     where the column labels for the 2mFo-DFc and mFo-DFc maps are known.
     Instead, we will open our files manually.
-  </p>
-  <p class="instruction">>>> Choose <code>File/Open Coordinates...</code></p>
-  <p>
+    Choose <code>File/Open Coordinates...</code>
+    (you can also click the folder icon in the main toolbar).
     A file browser will appear.
     From this you can select a coordinate file,
     as well choose how to recentre the view and the new molecule.
+    Select <code>refined_model.pdb</code> and click <code>Open</code>.
   </p>
-  <p class="instruction">>>> Select <code>refined_model.pdb</code> and click <code>Open</code></p>
   <p>
     A window will appear asking you to Fix Nomenclature Errors.
     This is a common occurence when opening coordinates
     and is usually because there is a naming convention on symmetrical residues,
     e.g. which way round OD1 and OD2 are in ASP, that most programs ignore.
+    Click <code>Yes</code> to fix nomenclature errors.
   </p>
-  <p class="instruction">>>> Click <code>Yes</code> to fix nomenclature errors</p>
   <p>
     Now we will open the 2mFo-DFc and mFo-DFc maps.
     Going to <code>File/Auto Open MTZ...</code>
     is equivalent to opening the MTZ on the command line
-    and will open maps if it recognises which columns to use.
+    and will open both maps if it can work out which columns to use.
+    We will open the maps one at a time.
+    Choose <code>File/Open MTZ, mmCIF, fcf or phs...</code>
+    to open the file browser.
+    Select <code>refined_model.mtz</code> and click <code>Open</code>.
+    A window with the title Column Label Assignment should appear.
   </p>
-  <ol>
-    <li>Opening maps</li>
-    <li>Opening coot via i2</li>
-  </ol>
+  <img src="img/mtz_cols.png" alt="Column Label Assignment">
+  <p>
+    This window allows you to select
+    which amplitude and phase columns to use for the new map.
+    Sensible defaults have been chosen to open the 2mFo-DFc map.
+    In this case there is no need use weights
+    because the FWT,PHWT columns are already weighted.
+    If you click the <code>Expert Mode?</code> button
+    you can also choose resolution limits to truncate the data.
+    Click <code>OK</code> to open the 2mFo-DFc map.
+  </p>
+  <p>
+    Now we will open the mFo-DFc map.
+    Choose <code>File/Open MTZ, mmCIF, fcf or phs...</code> again
+    and open <code>refined_model.mtz</code>.
+    Change the <code>Amplitudes</code> column to <code>DELFWT</code>
+    and the <code>Phases</code> column to <code>PHDELWT</code>.
+    The <code>Is a Difference Map</code> checkbox
+    needs to be checked (should happen automatically)
+    so that <i>Coot</i> will treat this as a difference map.
+    Click <code>OK</code> to open the mFo-DFc map.
+  </p>
+  <p>
+    The maps should be visible as a sphere in the centre of the screen.
+    By default, the 2mFo-DFc is blue and the mFo-DFc (difference) map is
+    green for positive density and red for negative density.
+  </p>
+  <img src="img/maps.png" alt="2mFo-DFc and mFo-DFc Maps">
 
   <h5 id="3">3. Viewing</h5>
   <ol>
@@ -134,6 +169,7 @@
 
   <h5 id="4">4. Fixing the protein</h5>
   <ol>
+    <li>Renumber residue range</li>
     <li>Touch on validation (density fit only)</li>
     <li>Deleting</li>
     <li>Mutating</li>
