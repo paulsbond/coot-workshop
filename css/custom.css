@@ -2,7 +2,7 @@ h6 { text-transform: uppercase; letter-spacing: .15rem; font-weight: bold; }
 ol { counter-reset: item; line-height: 1.1 }
 ol li { display: block }
 ol li:before { content: counters(item, ".") " "; counter-increment: item }
-img { display: block; margin: 0 auto 2.5rem auto; max-width: 100%; }
+img { display: block; margin: 0 auto 2.5rem auto; max-width: 100%; box-sizing: border-box; }
 .container { margin: 50px auto 150px auto }
 @media print
 {
