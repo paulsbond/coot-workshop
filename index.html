@@ -458,6 +458,42 @@
   </p>
 
   <h6 id="4.5">4.5. Rotamers</h6>
+  <p>
+    Now we need to move the side chain into the correct conformation.
+    Click the <code>Rotamers</code> button in the refinement toolbar
+    and then click on of the atoms in Met139.
+    A list of rotamers for that residue type appears.
+    A rotamer is simply a commonly observed side chain conformation
+    and this list is ordered from most to least common.
+  </p>
+  <img src="img/rotamers.png" alt="Rotamers">
+  <p>
+    Use <code>.</code> and <code>,</code> on the keyboard
+    to cycle through the rotamers.
+    This can be done while adjusting the view in the main window.
+    Each rotamer has a name that roughly describes the chi angles:
+    p for 60, m for -60, t for 180
+    and a number for the final angle of sp2 side chains.
+    The closest rotamer for Met139 is mmt.
+    Select this and click <code>OK</code>.
+    Press <code>x</code> to perform real space refinement on this rotamer,
+    which moves it into the density
+    (as long as the residue is at the centre of the view).
+    If this doesn't work you first need to click
+    <code>Extensions / Settings / Install Template Keybindings</code>.
+  </p>
+  <p>
+    There is also an <code>Auto Fit Rotamer</code> button
+    that will try to pick the closest rotamer and then refine it automatically.
+    Click this and then an atom of Met139 to try it out.
+    The keyboard shortcut for this is <code>j</code>,
+    which auto-fits the rotamer at the centre of the screen.
+    There is another useful button on the refinement toolbar
+    that automates everything we did in the last two sections.
+    Go to Met164, click <code>Mutate & Auto Fit</code>,
+    then click an atom from the residue and select MET from the list.
+  </p>
+
   <h6 id="4.6">4.6. Real Space Refinement</h6>
   <h6 id="4.7">4.7. Adding Terminal Residues</h6>
 
