@@ -438,6 +438,25 @@
   </p>
 
   <h6 id="4.4">4.4. Mutating</h6>
+  <p>
+    All of the residues in this structure are the correct type
+    so do not need mutating.
+    However, quite a few of the residues do not have complete side chains
+    and the mutate function will work to rebuild them.
+    Go to Met139 and see that the side chain is not complete.
+    There is even a loose atom claiming to be the CE atom.
+    It must have been left there during model preparation
+    and this is the position it ended up in after refinement.
+    There is clear difference density
+    where the side chain is supposed to go
+    (this is another clear sign that our MR solution was successful).
+    Click on the <code>Simple Mutate</code> button in the refinement toolbar
+    then click on an atom of Met139.
+    A list of residue types should appear.
+    Click on <code>MET</code> and the side chain will be completed
+    (although not in the right conformation).
+  </p>
+
   <h6 id="4.5">4.5. Rotamers</h6>
   <h6 id="4.6">4.6. Real Space Refinement</h6>
   <h6 id="4.7">4.7. Adding Terminal Residues</h6>
