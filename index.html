@@ -495,7 +495,69 @@
   </p>
 
   <h6 id="4.6">4.6. Real Space Refinement</h6>
-  <h6 id="4.7">4.7. Adding Terminal Residues</h6>
+  <p>
+    The aim of real space refinement is to move the atoms
+    so that two terms are minimised:
+    one is how well the atoms fit the density
+    and the other is how close bond lengths, angles, etc are to ideal values.
+    Parts of the second term are known as restraints.
+    At high resolution when you can see individual atoms
+    the density term is more important.
+    At low resolution the density doesn't tell you as much about the atomic
+    positions so the restraints term becomes more important.
+    To adjust the weighting between the terms,
+    select <code>Refine/Regularize Control</code>
+    in the top right of the main window.
+    You can change which restraints to use as well
+    as the weight between the density and restraints terms.
+    The default is <code>60</code>.
+    Higher numbers will use the restraints less.
+    Click the <code>Estimate</code> button,
+    which will try to choose a sensible weight for the current map.
+    The map that you are refining into can be changed
+    with the <code>Select Map</code> button underneath.
+  </p>
+  <p>
+    Go to Thr175. The red density at CG2 and strong green density opposite
+    tell us that the side chain needs rotating.
+    Instead of auto-fitting the rotamer we will attempt to refine it manually.
+    Click the <code>Real Space Refine Zone</code> button
+    on the refinement toolbar then click on Thr175 twice.
+    You need to click twice because it expects a zone,
+    i.e. you need to click the first and last residue
+    in the range you want to work on.
+    Some refinement traffic lights will appear.
+  </p>
+  <img src="img/refinement.png" alt="Refinement">
+  <p>
+    These show how much the restraints deviate from their ideal values.
+    The numbers show the number of standard deviations
+    and there is also a simple traffic light system
+    from green, which is fine, to red, which is bad.
+    The fit to density can be assessed by eye.
+    An initial minimisation has been done
+    and the result is shown as a white copy of the atoms.
+    They haven't moved much as the conformation is at a local minimum.
+    Click the OG1 atom, drag it in the direction of the green density
+    and let go to force it in that direction.
+    The further you drag the more force you add
+    so often you will need to drag past the point
+    where you want the atom to end up.
+    Try to rotate the residue into place then click <code>Accept</code>.
+  </p>
+  <p>
+    Shortcuts for refining a single residue.
+    Useful to refine residues either side.
+    Shortcuts for that too.
+    Magical hjh.
+  </p>
+
+  <h6 id="4.7">4.7. Flipping peptide bonds</h6>
+  <p>
+
+  </p>
+
+  <h6 id="4.8">4.8. Adding Terminal Residues</h6>
 
   <h3 id="5">5. Adding solvent</h3>
   <ol>
