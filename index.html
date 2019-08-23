@@ -21,15 +21,30 @@
 
   <ol class="no-print">
     <li><a href="#1">Introduction</a></li>
-    <li><a href="#2">Starting</a></li>
-    <li><a href="#3">Viewing</a></li>
+    <li><a href="#2">Starting</a>
+      <ol>
+        <li><a href="#2.1">Starting Coot</a></li>
+        <li><a href="#2.2">Opening Files</a></li>
+      </ol>
+    </li>
+    <li><a href="#3">Viewing</a>
+      <ol>
+        <li><a href="#3.1">Controls</a></li>
+        <li><a href="#3.2">Virtual Trackball</a></li>
+        <li><a href="#3.3">Display Manager</a></li>
+        <li><a href="#3.4">Molecule Representations</a></li>
+        <li><a href="#3.5">Symmetry & Packing</a></li>
+        <li><a href="#3.6">Solvent Boundaries</a></li>
+        <li><a href="#3.7">Map Contouring</a></li>
+      </ol>
+    </li>
     <li><a href="#4">Fixing the protein</a></li>
     <li><a href="#5">Adding solvent</a></li>
     <li><a href="#6">Building a peptide</a></li>
     <li><a href="#7">Adding a ligand</a></li>
   </ol>
 
-  <h5 id="1">1. Introduction</h5>
+  <h3 id="1">1. Introduction</h3>
   <p>
     <i>Coot</i> is a program for macromolecular model building,
     model completion and validation
@@ -73,7 +88,8 @@
     </li>
   </ul>
 
-  <h5 id="2">2. Starting</h5>
+  <h3 id="2">2. Starting</h3>
+  <h6 id="2.1">2.1 Starting Coot</h6>
   <p>
     Type <code>coot</code> on the command line.
     The <i>Coot</i> window should appear.
@@ -95,6 +111,7 @@
     At the bottom of the window is the status bar,
     which is used to display messages.
   </p>
+  <h6 id="2.2">2.2 Opening Files</h6>
   <p>
     Files that you want to open in <i>Coot</i>
     can also be passed as command line arguments:
@@ -112,7 +129,7 @@
   </p>
   <p>
     A window will appear asking you to fix nomenclature errors.
-    This is a common occurence when opening coordinates and is usually because
+    This is a common occurrence when opening coordinates and is usually because
     there is an atom naming convention for symmetrical residues,
     e.g. which way round CD1 and CD2 are in PHE, that most programs ignore.
     Click <code>Yes</code> to fix them.
@@ -158,7 +175,8 @@
   </p>
   <img src="img/maps.png" alt="2mFo-DFc and mFo-DFc Maps">
 
-  <h5 id="3">3. Viewing</h5>
+  <h3 id="3">3. Viewing</h3>
+  <h6 id="3.1">3.1 Controls</h6>
   <p>
     The following controls are used to change the view:
   </p>
@@ -174,6 +192,7 @@
       <tr><td>Middle-mouse click</td><td>Centre on atom</td></tr>
     </tbody>
   </table>
+  <h6 id="3.2">3.2 Virtual Trackball</h6>
   <p>
     By default, the rotation is done
     using a virtual trackball with a spherical surface.
@@ -187,6 +206,7 @@
     so that only the direction of dragging matters.
   </p>
   <img src="img/trackball.png" alt="Virtual Trackball">
+  <h6 id="3.3">3.3 Display Manager</h6>
   <p>
     Open <code>Display Manager</code> from the main toolbar.
     This shows lists of all the molecules and maps currently open.
@@ -197,6 +217,7 @@
     and molecule representations.
   </p>
   <img src="img/display_manager.png" alt="Display Manager">
+  <h6 id="3.4">3.4 Molecule Representations</h6>
   <p>
     The default representation for molecules is
     <code>Bonds (Colour by Atom)</code>,
@@ -212,6 +233,7 @@
     show us that there are missing residues there.
   </p>
   <img src="img/rainbow.png" alt="Jones' Rainbow">
+  <h6 id="3.5">3.5 Symmetry & Packing</h6>
   <p>
     When checking if a molecular replacement solution is correct,
     it is useful to see whether the packing of molecules
@@ -246,18 +268,24 @@
     <div class="one-half column"><img src="img/packing_good.png" alt="Good Packing"></div>
     <div class="one-half column"><img src="img/packing_bad.png" alt="Bad Packing"></div>
   </div>
+  <h6 id="3.6">3.6 Solvent Boundaries</h6>
   <p>
     Another way to tell whether an MR solution is correct
     is by looking at the density.
-    Go back to <code>Draw / Cell & Symmetry</code>,
-    change the <code>Master Switch</code> to <code>Symmetry Off</code>
-    and <code>Show Unit Cells?</code> to <code>No</code>.
-    Then go back to the <code>Display Manager</code>,
-    change the molecule represtation to <code>Bonds (Colour by Atom)</code>
+    Go back to <code>Draw / Cell & Symmetry</code>
+    and change <code>Display as CAs</code> to <code>Display Sphere</code>
+    in the <code>Symmetry by Molecule</code> window.
+    Also reduce <code>Symmetry Atom Display Radius</code>
+    to <code>13</code> &angst;,
+    change <code>Show Unit Cells?</code> to <code>No</code>
+    and click <code>OK</code>.
+    In the <code>Display Manager</code>,
+    change the molecule representation to <code>Bonds (Colour by Atom)</code>
     and display both maps.
     If you move around the edge of the molecule
-    the density should show a clear protein/solvent boundary
-    This won't be the case for an incorrect MR solution.
+    the density should show a clear protein/solvent boundary.
+    This won't be the case for a bad MR solution
+    as the solvent will have lots of noise.
     The images below show solvent boundaries
     for the correct and incorrect solutions.
   </p>
@@ -265,12 +293,29 @@
     <div class="one-half column"><img src="img/boundary_good.png" alt="Good Solvent Boundary"></div>
     <div class="one-half column"><img src="img/boundary_bad.png" alt="Bad Solvent Boundary"></div>
   </div>
+  <h6 id="3.7">3.7 Map Contouring</h6>
+  <p>
+    The maps can be contoured at different levels using the mouse scroll wheel
+    or <code>+</code> and <code>-</code> on the keyboard.
+    Density levels are specified either
+    as absolute values (e/&angst;<sup>3</sup>)
+    or as RMSD values.
+    <i>Coot</i> will try to pick sensible defaults on opening,
+    e.g. 0.41 e/&angst;<sup>3</sup> (1.5 RMSD) for our 2mFo-DFc map
+    and 0.39 e/&angst;<sub>3</sub> (2.98 RMSD) for our mFo-DFc map.
+    One click will change the contour level by 0.1 RMSD.
+    Map properties can be edited globally at <code>Edit / Map Parameters</code>
+    and for individual maps via the <code>Display Manager</code>.
+    It is common to use RMSD when talking about map levels
+    but keep in mind that, as the model improves,
+    features in the difference map will start to disappear
+    so the same level RMSD will display weaker features and more noise.
+  </p>
   <ol>
-    <li>Map scrolling</li>
     <li>Go to atom</li>
   </ol>
 
-  <h5 id="4">4. Fixing the protein</h5>
+  <h3 id="4">4. Fixing the protein</h3>
   <ol>
     <li>Renumber residue range</li>
     <li>Touch on validation (density fit only)</li>
@@ -281,7 +326,7 @@
     <li>Adding terminal residues</li>
   </ol>
 
-  <h5 id="5">5. Adding solvent</h5>
+  <h3 id="5">5. Adding solvent</h3>
   <ol>
     <li>Adding solvent molecules</li>
     <li>Auto find waters</li>
@@ -289,14 +334,14 @@
     <li>Manually add waters</li>
   </ol>
 
-  <h5 id="6">6. Building a peptide</h5>
+  <h3 id="6">6. Building a peptide</h3>
   <ol>
     <li>Skeleton map</li>
     <li>CA Baton mode</li>
-    <li>Mutate resiude range</li>
+    <li>Mutate residue range</li>
   </ol>
 
-  <h5 id="7">7. Adding a ligand</h5>
+  <h3 id="7">7. Adding a ligand</h3>
   <ol>
     <li>Only if Rob isn't doing this part</li>
   </ol>
