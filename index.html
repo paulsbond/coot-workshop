@@ -370,7 +370,8 @@
     instead of the N-terminus of the full length protein.
     Residue 161 is actually the mutated N265A
     so we need to renumber the residues to make them match up.
-    Go to <code>Edit / Renumber Residues</code>.
+    Go to <code>Edit / Renumber Residues</code>
+    to get the following window:
   </p>
   <img src="img/renumber.png" alt="Renumber Residues">
   <p>
@@ -379,9 +380,37 @@
     and the <code>End Residue</code> to <code>C-terminus</code>.
     Residue 161 needs to become 265
     so <code>Apply Offset</code> should be <code>104</code>.
+    After clicking <code>Apply</code> you should see the updated atom label.
   </p>
 
-  <h6 id="4.2">4.2 Density Fit</h6>
+  <h6 id="4.2">4.2 Density Fit Analysis</h6>
+  <p>
+    This workshop will not go too much into validation
+    as it will be covered in other sessions,
+    but we will briefly go through density fit analysis
+    as it is very useful for getting a quick overview of a model.
+    The density fit of a residue is measured using
+    the average electron density level at the atom centres.
+    Before opening the graphs, go to
+    <code>Extensions / Settings / Set Density Fit Graph Weight</code>
+    and change the scale value to <code>0.8</code>.
+    Then open the analysis window by choosing
+    <code>Validate / Density fit analysis</code>
+    and picking the molecule.
+  </p>
+  <img src="img/density_fit.png" alt="Density Fit Analysis">
+  <p>
+    A window like the one above should appear.
+    It shows a graph of residue number against density fit for each chain.
+    Residues with good density fit values are small and green,
+    and bad density fit values are large and red.
+    If all residues are showing as green or red
+    then the scaling should be adjusted as we did earlier.
+    In this case we can see some residues with poor fit to density,
+    mainly at the N and C termini.
+    Clicking on one of the bars will move the view to that residue.
+  </p>
+
   <h6 id="4.3">4.3 Deleting</h6>
   <h6 id="4.4">4.4 Mutating</h6>
   <h6 id="4.5">4.5 Rotamers</h6>
