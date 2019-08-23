@@ -36,15 +36,27 @@
         <li><a href="#3.5">Symmetry & Packing</a></li>
         <li><a href="#3.6">Solvent Boundaries</a></li>
         <li><a href="#3.7">Map Contouring</a></li>
+        <li><a href="#3.8">Go To Atom</a></li>
       </ol>
     </li>
-    <li><a href="#4">Fixing the protein</a></li>
+    <li><a href="#4">Fixing the protein</a>
+      <ol>
+        <li><a href="#4.1">Renumber Residue Range</a></li>
+        <li><a href="#4.2">Density Fit</a></li>
+        <li><a href="#4.3">Deleting</a></li>
+        <li><a href="#4.4">Mutating</a></li>
+        <li><a href="#4.5">Rotamers</a></li>
+        <li><a href="#4.6">Real Space Refinement</a></li>
+        <li><a href="#4.7">Adding Terminal Residues</a></li>
+      </ol>
+    </li>
     <li><a href="#5">Adding solvent</a></li>
     <li><a href="#6">Building a peptide</a></li>
     <li><a href="#7">Adding a ligand</a></li>
   </ol>
 
   <h3 id="1">1. Introduction</h3>
+
   <p>
     <i>Coot</i> is a program for macromolecular model building,
     model completion and validation
@@ -89,6 +101,7 @@
   </ul>
 
   <h3 id="2">2. Starting</h3>
+
   <h6 id="2.1">2.1 Starting Coot</h6>
   <p>
     Type <code>coot</code> on the command line.
@@ -111,6 +124,7 @@
     At the bottom of the window is the status bar,
     which is used to display messages.
   </p>
+
   <h6 id="2.2">2.2 Opening Files</h6>
   <p>
     Files that you want to open in <i>Coot</i>
@@ -176,6 +190,7 @@
   <img src="img/maps.png" alt="2mFo-DFc and mFo-DFc Maps">
 
   <h3 id="3">3. Viewing</h3>
+
   <h6 id="3.1">3.1 Controls</h6>
   <p>
     The following controls are used to change the view:
@@ -192,6 +207,7 @@
       <tr><td>Middle-mouse click</td><td>Centre on atom</td></tr>
     </tbody>
   </table>
+
   <h6 id="3.2">3.2 Virtual Trackball</h6>
   <p>
     By default, the rotation is done
@@ -206,6 +222,7 @@
     so that only the direction of dragging matters.
   </p>
   <img src="img/trackball.png" alt="Virtual Trackball">
+
   <h6 id="3.3">3.3 Display Manager</h6>
   <p>
     Open <code>Display Manager</code> from the main toolbar.
@@ -217,6 +234,7 @@
     and molecule representations.
   </p>
   <img src="img/display_manager.png" alt="Display Manager">
+
   <h6 id="3.4">3.4 Molecule Representations</h6>
   <p>
     The default representation for molecules is
@@ -233,6 +251,7 @@
     show us that there are missing residues there.
   </p>
   <img src="img/rainbow.png" alt="Jones' Rainbow">
+
   <h6 id="3.5">3.5 Symmetry & Packing</h6>
   <p>
     When checking if a molecular replacement solution is correct,
@@ -268,6 +287,7 @@
     <div class="one-half column"><img src="img/packing_good.png" alt="Good Packing"></div>
     <div class="one-half column"><img src="img/packing_bad.png" alt="Bad Packing"></div>
   </div>
+
   <h6 id="3.6">3.6 Solvent Boundaries</h6>
   <p>
     Another way to tell whether an MR solution is correct
@@ -293,6 +313,7 @@
     <div class="one-half column"><img src="img/boundary_good.png" alt="Good Solvent Boundary"></div>
     <div class="one-half column"><img src="img/boundary_bad.png" alt="Bad Solvent Boundary"></div>
   </div>
+
   <h6 id="3.7">3.7 Map Contouring</h6>
   <p>
     The maps can be contoured at different levels using the mouse scroll wheel
@@ -311,20 +332,42 @@
     features in the difference map will start to disappear
     so the same level RMSD will display weaker features and more noise.
   </p>
-  <ol>
-    <li>Go to atom</li>
-  </ol>
+
+  <h6 id="3.8">3.8 Go To Atom</h6>
+  <p>
+    A quick way to move about in Coot is to use the Go To Atom window.
+    This can be accessed through <code>Draw / Go To Atom</code>,
+    pressing <code>F6</code> on the keyboard
+    or clicking the <img src="icons/go-to-atom.svg" class="icon"> icon
+    in the main toolbar.
+  </p>
+  <img src="img/go_to_atom.png" alt="Go To Atom">
+  <p>
+    An atom can be selected using text boxes in the top left
+    or the lists at the bottom of the window.
+    Clicking <code>Apply</code> will move the view to the selected atom.
+    This window can also be used to skip through residues using the
+    <code>Next Residue</code> and <code>Previous Residue</code> buttons,
+    although it is much quicker to use <code>Space</code> (for next residue)
+    and <code>Shift</code><code>Space</code> (for previous residue)
+    on the keyboard.
+    There is also a quicker method
+    of going to a specific residue using the keyboard.
+    Press <code>Ctrl</code><code>G</code>
+    and a text box should appear at the bottom left of the window.
+    Type <code>161</code> and press <code>Enter</code> to go to residue 161.
+    If the molecule has multiple chains
+    you can prefix the residue number by the chain label.
+  </p>
 
   <h3 id="4">4. Fixing the protein</h3>
-  <ol>
-    <li>Renumber residue range</li>
-    <li>Touch on validation (density fit only)</li>
-    <li>Deleting</li>
-    <li>Mutating</li>
-    <li>Rotamers</li>
-    <li>Real space refinement</li>
-    <li>Adding terminal residues</li>
-  </ol>
+  <h6 id="4.1">4.1 Renumber Residue Range</h6>
+  <h6 id="4.2">4.2 Density Fit</h6>
+  <h6 id="4.3">4.3 Deleting</h6>
+  <h6 id="4.4">4.4 Mutating</h6>
+  <h6 id="4.5">4.5 Rotamers</h6>
+  <h6 id="4.6">4.6 Real Space Refinement</h6>
+  <h6 id="4.7">4.7 Adding Terminal Residues</h6>
 
   <h3 id="5">5. Adding solvent</h3>
   <ol>
