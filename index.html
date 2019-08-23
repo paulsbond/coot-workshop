@@ -361,7 +361,26 @@
   </p>
 
   <h3 id="4">4. Fixing the protein</h3>
+
   <h6 id="4.1">4.1 Renumber Residue Range</h6>
+  <p>
+    When preparing the molecular replacement model,
+    the residues were numbered so that they start from 1
+    at the N-terminus of the crystallised construct
+    instead of the N-terminus of the full length protein.
+    Residue 161 is actually the mutated N265A
+    so we need to renumber the residues to make them match up.
+    Go to <code>Edit / Renumber Residues</code>.
+  </p>
+  <img src="img/renumber.png" alt="Renumber Residues">
+  <p>
+    We want to renumber all residues in our chain
+    so change the <code>Start Residue</code> to <code>N-terminus</code>
+    and the <code>End Residue</code> to <code>C-terminus</code>.
+    Residue 161 needs to become 265
+    so <code>Apply Offset</code> should be <code>104</code>.
+  </p>
+
   <h6 id="4.2">4.2 Density Fit</h6>
   <h6 id="4.3">4.3 Deleting</h6>
   <h6 id="4.4">4.4 Mutating</h6>
