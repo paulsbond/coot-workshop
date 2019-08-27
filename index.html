@@ -185,7 +185,8 @@
     The maps should be visible as a sphere in the centre of the screen.
     By default, the 2mFo-DFc is coloured blue
     and the mFo-DFc (difference) map is coloured
-    green for positive density and red for negative density.
+    green for positive density (where parts of the model are missing)
+    and red for negative density (where the model is in the wrong place).
   </p>
   <img src="img/maps.png" alt="2mFo-DFc and mFo-DFc Maps">
 
@@ -566,7 +567,7 @@
     A powerful combination of shortcuts is <code>hjh</code>,
     which can correct most side chain errors.
     It does neighbours refine to minimise the backbone geometry,
-    automatically fits the rotamer
+    auto-fits the rotamer
     (which should be easier with the updated backbone positions)
     and finally another neighbours refine
     to remove any backbone distortions introduced during the rotamer fitting.
