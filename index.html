@@ -683,28 +683,34 @@
   </p>
   <img src="img/peptide_correct.png" alt="Correct Peptide">
 
-  <h3 id="5">5. Adding solvent</h3>
+  <h3 id="5">5. Building a peptide</h3>
+  <p>
+    Building the small peptide.
+    The sequence is <code>SKSKDRKYTL</code> but one is modified.
+    Use skeleton map to help visualise where the C-alphas are.
+    Can see clear one in the middle of the blob.
+    Start from a position of a C-alpha one away from the end.
+    Then you will see an arrow 3.8A in length to place the first C-alpha
+    at the end of the chain.
+    From this first C-alpha you will place a baton back at the place
+    you came from.
+    Then place batons to the other end of the peptide.
+    Click dismiss when done.
+    Convert to a C-alpha trace.
+    Will get a backwards and forwards trace.
+    One should fit better than the other.
+    Real space refine zone.
+    Mutate residue range.
+    Change to modified residue.
+  </p>
+
+  <h3 id="6">6. Adding solvent</h3>
   <ol>
     <li>Adding solvent molecules</li>
     <li>Auto find waters</li>
     <li>Checking waters</li>
     <li>Manually add waters</li>
   </ol>
-
-  <h3 id="6">6. Building a peptide</h3>
-  <ol>
-    <li>Skeleton map</li>
-    <li>CA Baton mode</li>
-    <li>Mutate residue range</li>
-  </ol>
-  <p>
-    Sequence from Gly117 to Gln364:
-  </p>
-  <pre><code>117 GVCWIYYPDGGSLVGEVNEDGEMTGEKIAYVYPDERTALYGKFIDGEMIEGKLATLMSTE
-177 EGRPHFELMPGNSVYHFDKSTSSCISTNALLPDPYESERVYVAESLISSAGEGLFSKVAV
-237 GPNTVMSFYNGVRITHQEVDSRDWALNGATLSLDEETVIDVPEPYNHVSKYCASLGHKAN
-297 HSFTPNCIYDMFVHPRFGPIKCIRTLRAVEADEELTVAYGYDHSPPGKSGPEAPEWYQVE
-357 LKAFQATQ</code></pre>
 
   <h3 id="7">7. Adding a ligand</h3>
   <ol>
@@ -715,6 +721,22 @@
     Extra?
     Opening Coot via i2? Competition to see who gets the lowest R-free?
     Trying other online tutorials?
+    Build whole peptide?
+  </p>
+  <p>
+      Sequence from Gly117 to Gln364:
+    </p>
+    <pre><code>117 GVCWIYYPDGGSLVGEVNEDGEMTGEKIAYVYPDERTALYGKFIDGEMIEGKLATLMSTE
+  177 EGRPHFELMPGNSVYHFDKSTSSCISTNALLPDPYESERVYVAESLISSAGEGLFSKVAV
+  237 GPNTVMSFYNGVRITHQEVDSRDWALNGATLSLDEETVIDVPEPYNHVSKYCASLGHKAN
+  297 HSFTPNCIYDMFVHPRFGPIKCIRTLRAVEADEELTVAYGYDHSPPGKSGPEAPEWYQVE
+  357 LKAFQATQ</code></pre>
+  
+
+  <p>
+    Other resources:
+    Coot manual
+    Coot tutorials.
   </p>
 
   <hr>
