@@ -576,6 +576,39 @@
   </p>
 
   <h6 id="4.7">4.7. Alternate conformations</h6>
+  <p>
+    Press <code>space</code> to go to Glu177.
+    There is clear positive difference density
+    suggesting the side chain should be in another conformation.
+    There is also some negative difference density at the current position
+    but auto-fitting puts the rotamer back in the same place.
+    In this case the side chain could exist in two conformations in the crystal
+    and the negative difference density
+    is because we have one side chain at 100% occupancy.
+    Press the <code>Add Alt Conf</code> button on the refinement toolbar.
+    The following window should appear:
+  </p>
+  <img src="img/alt_conf_mode.png" alt="Alternate Conformation Mode">
+  <p>
+    This lets you choose whether to split the whole residue
+    or just the atoms from C-alpha onwards.
+    Splitting the whole residue
+    will allow for any slight changes in backbone conformation.
+    Now click on an atom in Glu177 and another window will appear:
+  </p>
+  <img src="img/alt_conf_rotamer.png" alt="Alternate Conformation Rotamer">
+  <p>
+    This lets you select an initial rotamer for the new conformation
+    as well as what occupancy you want it to have.
+    In this case we will leave the occupancy at 50%.
+    After doing global refinement with REFMAC
+    you may notice difference density
+    that suggests the occupancy should be different.
+    Look through the rotamers with <code>.</code> and <code>,</code>,
+    select the one you think is closest and click <code>OK</code>.
+    Perform a neighbours refine (<code>h</code> or <code>t</code>)
+    to clean up the positions of both conformations.
+  </p>
 
   <h6 id="4.8">4.8. Flipping peptide bonds</h6>
 
