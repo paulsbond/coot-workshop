@@ -611,6 +611,21 @@
   </p>
 
   <h6 id="4.8">4.8. Adding Terminal Residues</h6>
+  <p>
+    Between Tyr337 and Pro350 there is a missing loop
+    with the sequence <code>DHSPPGKSGPEA</code>.
+    However, we have enough density to build some of the residues.
+    Go to Tyr337,
+    click <code>Add Terminal Residue</code> on the refinement toolbar
+    and click on an atom of Tyr337.
+    This will build an alanine as the next residue.
+    Press <code>h</code> to refine it and then mutate it to aspartic acid.
+    Go to Pro350 and do the same for the other end of the loop.
+    The backbone is quite clear for Ala349 and Glu348.
+    There is some density for Pro347
+    but you might want to wait until doing more refinement
+    to get an improved map.
+  </p>
 
   <h6 id="4.9">4.9. Peptide bonds</h6>
   <p>
@@ -626,7 +641,7 @@
     However, in this case there is an extra complication.
     Flipping the peptide will flip both the carbonyl and the nitrogen
     and still form a trans-peptide.
-    If you try this and refine you will end up with a twisted peptide
+    If you try to refine this you will end up with a twisted peptide
     where the omega angle is &gt; 30&deg; and &lt; 150&deg;.
     This is indicated by a yellow shaded area.
   </p>
@@ -641,7 +656,7 @@
     This allows you to rotate either the whole peptide
     or just the carbonyl using sliders.
     A Ramachandran plot for the residues either side gets updated as you rotate.
-    One of the residues is in the white disallowed region of the plot,
+    One of the residues starts in the white disallowed region of the plot,
     which also suggests something could be wrong.
   </p>
   <div class="row">
@@ -682,6 +697,14 @@
     <li>CA Baton mode</li>
     <li>Mutate residue range</li>
   </ol>
+  <p>
+    Sequence from Gly117 to Gln364:
+  </p>
+  <pre><code>117 GVCWIYYPDGGSLVGEVNEDGEMTGEKIAYVYPDERTALYGKFIDGEMIEGKLATLMSTE
+177 EGRPHFELMPGNSVYHFDKSTSSCISTNALLPDPYESERVYVAESLISSAGEGLFSKVAV
+237 GPNTVMSFYNGVRITHQEVDSRDWALNGATLSLDEETVIDVPEPYNHVSKYCASLGHKAN
+297 HSFTPNCIYDMFVHPRFGPIKCIRTLRAVEADEELTVAYGYDHSPPGKSGPEAPEWYQVE
+357 LKAFQATQ</code></pre>
 
   <h3 id="7">7. Adding a ligand</h3>
   <ol>
