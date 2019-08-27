@@ -610,9 +610,63 @@
     to clean up the positions of both conformations.
   </p>
 
-  <h6 id="4.8">4.8. Flipping peptide bonds</h6>
+  <h6 id="4.8">4.8. Adding Terminal Residues</h6>
 
-  <h6 id="4.9">4.9. Adding Terminal Residues</h6>
+  <h6 id="4.9">4.9. Peptide bonds</h6>
+  <p>
+    There is a problem with the peptide bond between Glu279 and Pro280.
+    You will see there is negative difference density at the carbonyl oxygen
+    but positive difference density opposite.
+    This is a sign that the peptide needs to be flipped.
+    Usually, this can be fixed by clicking on
+    the <code>Flip Peptide</code> button on the refinement toolbar
+    and clicking the peptide.
+    The shortcut <code>q</code> flips the peptide at the centre of the view
+    and <code>hqh</code> is another useful key combination.
+    However, in this case there is an extra complication.
+    Flipping the peptide will flip both the carbonyl and the nitrogen
+    and still form a trans-peptide.
+    If you try this and refine you will end up with a twisted peptide
+    where the omega angle is &gt; 30&deg; and &lt; 150&deg;.
+    This is indicated by a yellow shaded area.
+  </p>
+  <div class="row">
+    <div class="one-half column"><img src="img/peptide_start.png" alt="Starting Peptide"></div>
+    <div class="one-half column"><img src="img/peptide_twisted.png" alt="Twisted Peptide"></div>
+  </div>
+  <p>
+    This example should be a cis-peptide instead.
+    Click the <code>Edit Backbone Torsions</code> button
+    on the refinement toolbar and then click an atom of the peptide.
+    This allows you to rotate either the whole peptide
+    or just the carbonyl using sliders.
+    A Ramachandran plot for the residues either side gets updated as you rotate.
+    One of the residues is in the white disallowed region of the plot,
+    which also suggests something could be wrong.
+  </p>
+  <div class="row">
+    <div class="one-half column"><img src="img/backbone_rama.png" alt="Backbone Ramachandran Plot"></div>
+    <div class="one-half column"><img src="img/backbone_sliders.png" alt="Edit Backbone"></div>
+  </div>
+  <p>
+    Use the slider to rotate the carbonyl into the middle of the green density
+    and click okay.
+    You should hopefully see a green shaded area to indicate that
+    it is a now a cis-peptide bond as the omega angle is less than 30&deg;.
+    This is important because
+    if there is a yellow shaded area for a twisted peptide
+    then trans-peptide restraints will be used.
+    These can be temporarily turned off
+    from <code>Refine/Regularize Control</code>
+    if you are struggling to force the backbone into the correct conformation,
+    but in general these should be kept on
+    to avoid building incorrect cis-peptides.
+    Cis-peptides are only common for X-Pro bonds.
+    If the second residue is something other than proline
+    then a red shaded area will be shown to indicate a possible error.
+    The figure below shows the correct conformation.
+  </p>
+  <img src="img/peptide_correct.png" alt="Correct Peptide">
 
   <h3 id="5">5. Adding solvent</h3>
   <ol>
