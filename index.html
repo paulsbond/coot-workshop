@@ -683,13 +683,14 @@
   </p>
   <img src="img/peptide_correct.png" alt="Correct Peptide">
 
-  <h3 id="5">5. Building a peptide</h3>
+  <h3 id="5">5. Adding ligands</h3>
 
   <h6 id="5.1">5.1. Unmodelled blobs</h6>
   <p>
-    The protein has 10-residue peptide ligand that needs to be modelled.
+    The protein has two ligands that needs to be modelled:
+    a 10-residue peptide and SAH.
     There is a useful tool that finds ligands and solvent molecules
-    by looking for blobs of density have no model
+    by looking for blobs of density that have no model
     and are too big to be water molecules.
     Go to <code>Validate / Unmodelled blobs</code>
     to get the following window:
@@ -702,13 +703,90 @@
     Click <code>Blob 1</code> to go to the density for the peptide.
   </p>
 
-  <h6 id="5.2">5.2. Skeleton map</h6>
+  <h6 id="5.2.">5.2. Building a short peptide</h6>
+  <p>
+    The clearest density is probably in the middle of the blob
+    where there is a long lysine derivative
+    with some side chain density near Tyr141 and Tyr201.
+    We will start by placing an alanine at this position.
+    First, move the view centre to where you want the residue to be,
+    then go to <code>Extensions / Modelling / Monomer from Dictionary</code>.
+  </p>
+  <img src="img/monomer_from_dictionary.png" alt="Monomer from Dictionary">
+  <p>
+    This window is used to get coordinates for a ligand
+    that already has restraints in the dictionary.
+    Type ALA in the box and click <code>Get Coords</code>
+    to place an alanine ligand at the centre of the view.
+    The new alanine will have more atoms than we need.
+    Delete the hydrogen atoms and the OXT atom (not O)
+    using <code>Delete</code> in the refinement toolbar.
+    Then use interactive real space refinement
+    to drag it into the correct position.
+  </p>
+  <img src="img/peptide_ligand.png" alt="Peptide Ligand Density">
+  <p>
+    This residue can now be treated the same as another peptide.
+    Use <code>Add Terminal Residue</code> to add
+    one extra residue to the C-terminus and two to the N-terminus.
+    Past this point the positions are not very well supported by the density.
+    Make sure to refine each residue into position after it is added.
+    This method for building a polyalanine chain
+    is good for a short peptide ligand,
+    but for longer chains the baton building mode should be used.
+    This will be covered in a later section.
+  </p>
+
+  <h6 id="5.3">5.3. Merge molecules</h6>
+  <p>
+    As you can see if you open the <code>Display Manager</code>,
+    the peptide ligand is currently in a separate molecule
+    when it should be the B chain of the same molecule.
+    Go to <code>Edit / Merge Molecules</code> to get the following window:
+  </p>
+  <img src="img/merge_molecules.png" alt="Merge Molecules">
+  <p>
+    The molecules checked at the top of the window will be copied
+    into the molecule chosen at the bottom.
+    In this case we want to copy the alanine ligand into the main molecule.
+    It will automatically be labelled as chain B.
+    The ligand molecule can now be deleted using the <code>Display Manager</code>.
+  </p>
+
+  <h6 id="5.3">5.4. Mutate residue range</h6>
+  <p>
+    The sequence for the peptide is <code>SKSKDRKYTL</code> (Ser186 to Leu195).
+    The four residues we have built are Lys187 to Asp190.
+    First, use <code>Edit / Renumber Residues</code> to fix the numbering.
+  </p>
+
+  <h6 id="5.4">5.5. Modified residues</h6>
+  <p>
+    Lys189 is actually MLZ.
+  </p>
+
+  <h3 id="8">8. Adding a ligand</h3>
+  <ol>
+    <li>Only if Rob isn't doing this part</li>
+  </ol>
+
+  <h3 id="6">6. Adding solvent</h3>
+  <ol>
+    <li>Adding solvent molecules</li>
+    <li>Auto find waters</li>
+    <li>Checking waters</li>
+    <li>Manually add waters</li>
+  </ol>
+
+  <h3 id="8">Building a protein from scratch</h3>
+
+  <h6 id="8.1">8.1. Skeleton map</h6>
   <p>
     Use skeleton map to help visualise where the C-alphas are.
     Can see clear one in the middle of the blob.
   </p>
 
-  <h6 id="5.3">5.3. Baton building</h6>
+  <h6 id="8.2">8.2. Baton building</h6>
   <p>
     Start from a position of a C-alpha one away from the end.
     Then you will see an arrow 3.8A in length to place the first C-alpha
@@ -722,29 +800,6 @@
     One should fit better than the other.
     Real space refine zone.
   </p>
-
-  <h6 id="5.4">5.4. Mutate residue range</h6>
-  <p>
-    The sequence for this is <code>SKSKDRKYTL</code> (Ser186 to Leu195).
-  </p>
-
-  <h6 id="5.5">5.5. Modified residues</h6>
-  <p>
-    Lys189 is actually MLZ.
-  </p>
-
-  <h3 id="6">6. Adding solvent</h3>
-  <ol>
-    <li>Adding solvent molecules</li>
-    <li>Auto find waters</li>
-    <li>Checking waters</li>
-    <li>Manually add waters</li>
-  </ol>
-
-  <h3 id="7">7. Adding a ligand</h3>
-  <ol>
-    <li>Only if Rob isn't doing this part</li>
-  </ol>
 
   <p>
     Extra?
