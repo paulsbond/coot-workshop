@@ -753,14 +753,25 @@
     The ligand molecule can now be deleted using the <code>Display Manager</code>.
   </p>
 
-  <h6 id="5.3">5.4. Mutate residue range</h6>
+  <h6 id="5.4">5.4. Mutate residue range</h6>
   <p>
     The sequence for the peptide is <code>SKSKDRKYTL</code> (Ser186 to Leu195).
-    The four residues we have built are Lys187 to Asp190.
-    First, use <code>Edit / Renumber Residues</code> to fix the numbering.
+    The four residues we have built so far
+    are <code>KSKD</code> (Lys187 to Asp190).
+    First use <code>Edit / Renumber Residues</code> to fix the numbering
+    then click <code>Calculate / Mutate Residue Range</code>
+    to open the following window:
+  </p>
+  <img src="img/mutate_residue_range.png" alt="Mutate Residue Range">
+  <p>
+    Make sure the inputs match those in the picture above.
+    The auto-fitting rotamers is optional
+    as you will probably find you need to follow this up by
+    more real space refinement
+    and manual adjustment of the side chains.
   </p>
 
-  <h6 id="5.4">5.5. Modified residues</h6>
+  <h6 id="5.5">5.5. Modified residues</h6>
   <p>
     Lys189 is actually MLZ.
   </p>
