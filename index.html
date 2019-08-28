@@ -684,11 +684,32 @@
   <img src="img/peptide_correct.png" alt="Correct Peptide">
 
   <h3 id="5">5. Building a peptide</h3>
+
+  <h6 id="5.1">5.1. Unmodelled blobs</h6>
   <p>
-    Building the small peptide.
-    The sequence is <code>SKSKDRKYTL</code> but one is modified.
+    The protein has 10-residue peptide ligand that needs to be modelled.
+    There is a useful tool that finds ligands and solvent molecules
+    by looking for blobs of density have no model
+    and are too big to be water molecules.
+    Go to <code>Validate / Unmodelled blobs</code>
+    to get the following window:
+  </p>
+  <img src="img/blobs_find.png" alt="Find Blobs">
+  <p>
+    Leave the defaults and click <code>Find Blobs</code>
+    to search the 2mFo-DFc map for blobs above 1.8 RMSD.
+    A list of unexplained blobs should appear.
+    Click <code>Blob 1</code> to go to the density for the peptide.
+  </p>
+
+  <h6 id="5.2">5.2. Skeleton map</h6>
+  <p>
     Use skeleton map to help visualise where the C-alphas are.
     Can see clear one in the middle of the blob.
+  </p>
+
+  <h6 id="5.3">5.3. Baton building</h6>
+  <p>
     Start from a position of a C-alpha one away from the end.
     Then you will see an arrow 3.8A in length to place the first C-alpha
     at the end of the chain.
@@ -700,8 +721,16 @@
     Will get a backwards and forwards trace.
     One should fit better than the other.
     Real space refine zone.
-    Mutate residue range.
-    Change to modified residue.
+  </p>
+
+  <h6 id="5.4">5.4. Mutate residue range</h6>
+  <p>
+    The sequence for this is <code>SKSKDRKYTL</code> (Ser186 to Leu195).
+  </p>
+
+  <h6 id="5.5">5.5. Modified residues</h6>
+  <p>
+    Lys189 is actually MLZ.
   </p>
 
   <h3 id="6">6. Adding solvent</h3>
@@ -731,7 +760,6 @@
   237 GPNTVMSFYNGVRITHQEVDSRDWALNGATLSLDEETVIDVPEPYNHVSKYCASLGHKAN
   297 HSFTPNCIYDMFVHPRFGPIKCIRTLRAVEADEELTVAYGYDHSPPGKSGPEAPEWYQVE
   357 LKAFQATQ</code></pre>
-  
 
   <p>
     Other resources:
