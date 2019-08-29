@@ -859,12 +859,38 @@
   </p>
 
   <h3 id="6">6. Adding waters</h3>
+
   <h6 id="6.1">6.1. Automatic</h6>
-  <ol>
-    <li>Auto find waters</li>
-    <li>Checking waters</li>
-    <li>Manually add waters</li>
-  </ol>
+  <p>
+    The structure we are working on is quite high resolution
+    so there are lots of peaks for ordered water molecules around the protein.
+    Fewer waters are seen as you move to lower resolution
+    and they stop being visible somewhere around 2.5 to 3.0 &angst;.
+    Go to <code>Calculate / Other Modelling Tools</code>
+    to open another toolbar
+    and select <code>Find Waters</code>.
+    Leave the default settings and click <code>Find Waters</code>.
+  </p>
+  <p>
+    A new chain will be made in the molecule to contain the new waters.
+    The waters should be checked by eye.
+    Use <code>Go To Atom</code> to move to the first water in this chain.
+    Then it is useful to see what hydrogen bonds the water is making.
+    Choose <code>Measures / Environment Distances</code>,
+    check <code>Show Residue Environment?</code> and click <code>OK</code>.
+    Then press <code>space</code> to move through the water molecules
+    and examine them one at a time.
+    To make the view always jump from one atom to the next instead of sliding
+    turn of <code>Smooth Recentering</code>
+    in the <code>General</code> section of <code>Edit / Preferences</code>.
+  </p>
+
+  <h6 id="6.2">6.2. Manual</h6>
+  <p>
+    Difference map peaks.
+    Add water (w) then refine (x).
+    Merge molecules.
+  </p>
 
   <h3 id="7">7. Building a protein from scratch</h3>
 
