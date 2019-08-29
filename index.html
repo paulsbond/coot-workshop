@@ -769,6 +769,8 @@
     as you will probably find you need to follow this up by
     more real space refinement
     and manual adjustment of the side chains.
+    The density for Lys187 is not very strong
+    but it can be seen if you decrease the contour level slightly.
   </p>
 
   <h6 id="5.5">5.5. Modified residues</h6>
@@ -776,7 +778,7 @@
     Go to the B:Lys189 residue that we have just built.
     This should actually be N-methyl-lysine (MLZ).
     To mutate it make sure the residue is at the centre of the view
-    and click <code>Extensions / Modelling / Replace Residue</code>.
+    and click <code>Edit / Replace Residue</code>.
     A window will appear where you can type the 3-letter code.
   </p>
   <img src="img/replace_residue.png" alt="Replace Residue">
@@ -784,8 +786,15 @@
     Type <code>MLZ</code> and click <code>Mutate</code>.
     The LYS should be replaced with an MLZ residue
     in roughly the same place and with the same numbering.
-    However, the bonds to the neighbouring residues will have disappeared.
-    Can't refine either? Why? How to delete a link?
+    There is currently a known bug with the replace residue function
+    that is in the process of being fixed.
+    To correct the errors that occurred, download
+    <a href="replace_residue_fix.py">replace_residue_fix.py</a>,
+    go to <code>Calculate / Run Script</code>,
+    select the file in the browser and click <code>Open</code>.
+    You should see the peptide bond reform between MLZ and the next residue.
+    Perform a neighbours refine (<code>h</code> or <code>t</code>)
+    to refine the modified residue back into place.
   </p>
 
   <h3 id="8">8. Adding a ligand</h3>
@@ -834,10 +843,10 @@
       Sequence from Gly117 to Gln364:
     </p>
     <pre><code>117 GVCWIYYPDGGSLVGEVNEDGEMTGEKIAYVYPDERTALYGKFIDGEMIEGKLATLMSTE
-  177 EGRPHFELMPGNSVYHFDKSTSSCISTNALLPDPYESERVYVAESLISSAGEGLFSKVAV
-  237 GPNTVMSFYNGVRITHQEVDSRDWALNGATLSLDEETVIDVPEPYNHVSKYCASLGHKAN
-  297 HSFTPNCIYDMFVHPRFGPIKCIRTLRAVEADEELTVAYGYDHSPPGKSGPEAPEWYQVE
-  357 LKAFQATQ</code></pre>
+177 EGRPHFELMPGNSVYHFDKSTSSCISTNALLPDPYESERVYVAESLISSAGEGLFSKVAV
+237 GPNTVMSFYNGVRITHQEVDSRDWALNGATLSLDEETVIDVPEPYNHVSKYCASLGHKAN
+297 HSFTPNCIYDMFVHPRFGPIKCIRTLRAVEADEELTVAYGYDHSPPGKSGPEAPEWYQVE
+357 LKAFQATQ</code></pre>
 
   <p>
     Other resources:
