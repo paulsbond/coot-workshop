@@ -65,7 +65,7 @@
     how to use <i>Coot</i> to complete a molecular replacement (MR) solution.
     The structure we are trying to build is
     <a href="https://www.ebi.ac.uk/pdbe/entry/pdb/5eg2">5EG2</a>,
-    a human SET7/9 mutant in complex with S-adenosyl-l-homocysteine (SAH) and
+    a human SET7/9 mutant in complex with S-adenosyl-l-homocysteine and
     a 10 residue transcription initiation factor
     (<a href="https://doi.org/10.1021/acschembio.5b00852">Fick <i>et al.</i> 2016</a>).
     The data extend to 1.55 &angst; resolution and
@@ -688,7 +688,7 @@
   <h6 id="5.1">5.1. Unmodelled blobs</h6>
   <p>
     The protein has two ligands that needs to be modelled:
-    a 10-residue peptide and SAH.
+    a 10-residue peptide and S-adenosyl-l-homocysteine.
     There is a useful tool that finds ligands and solvent molecules
     by looking for blobs of density that have no model
     and are too big to be water molecules.
@@ -797,10 +797,65 @@
     to refine the modified residue back into place.
   </p>
 
-  <h3 id="8">8. Adding a ligand</h3>
-  <ol>
-    <li>Only if Rob isn't doing this part</li>
-  </ol>
+  <h6 id="5.6">5.6. Adding a known ligand</h3>
+  <p>
+    This section will deal with placing a ligand
+    that is already in the monomer library.
+    Run <code>Validate / Unmodelled blobs</code> again with the default options
+    and select the remaining blob for S-adenosyl-l-homocysteine.
+    Go to <code>File / Search Monomer Library</code>,
+    which allows you to search for monomers by name.  </p>
+  <img src="img/search_monomer_library.png" alt="Search Monomer Library">
+  <p>
+    Type <code>homocysteine</code> in the textbox and click <code>Search</code>.
+    Then select <code>SAH</code> from the list
+    to place the residue at the centre of the view.
+    We will not attempt to fit the ligand into density manually.
+    Select <code>Rotate Translate</code> in the refinement toolbar
+    and click on SAH twice.
+    This brings up a window with sliders to adjust
+    rotation and translation about the X, Y and Z axis.
+    The axis are relative to the view and not the coordinate axis:
+    X is left to right, Y is top to bottom and Z is perpendicular to the screen.
+  </p>
+  <img src="img/rotate_translate.png" alt="Rotate Translate">
+  <p>
+    Use the sliders to get the orientation of the ligand roughly correct,
+    then use real space refinement to try and drag the atoms into place.
+    If you are struggling to get the molecule into place
+    try using other refinement tools such as
+    <code>Fixed Atoms</code> or <code>Edit Chi Angles</code>.
+  </p>
+  <p>
+    Now we will look at the more automated way of fitting ligands.
+    First, delete the <code>SAH_from_dict</code> molecule
+    using the <code>Display Manager</code>.
+    Go to <code>File / Get Monomer</code>,
+    which can be used instead of <code>Search Monomer Library</code>
+    if you already know the three letter code.
+    Type <code>SAH</code> and click <code>OK</code>.
+    As we know which blob the ligand should be in,
+    centre the view there and then click <code>Ligand / Find Ligands</code>.
+    The the <code>Select Ligands</code> section,
+    select the newly placed <code>SAH_from_dict</code> ligand.
+    If you did not know where the ligand should go
+    then <code>Where to Search?</code>
+    could be changed to <code>Everywhere</code>.
+    You could also increase <code>Number of Conformers to Search</code>.
+    This will take longer but have more chance of fitting the ligand correctly.
+    Ligands with more rotatable bonds are likely to need higher numbers.
+    Click <code>Find Ligands</code> to start the search.
+  </p>
+  <p>
+    A new molecule will be made for the fitted ligand.
+    Use <code>Merge Molecules</code> to merge it into the main molecule
+    then delete the other molecules.
+    Depending on how many conformers you searched for
+    the fit may not be exact and still need some manual tweaking.
+    You should also delete the hydrogen atoms of the ligand
+    as these are not usually included in a model
+    except for very high resolution cases where they are observed.
+  </p>
 
   <h3 id="6">6. Adding solvent</h3>
   <ol>
