@@ -4,6 +4,7 @@
 <meta name="author" content="Paul Bond">
 <meta name="description" content="Coot Workshop for the Protein Crystallography Summer School 2019">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="icons/coot-favicon.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="css/skeleton.css">
@@ -703,7 +704,7 @@
     Click <code>Blob 1</code> to go to the density for the peptide.
   </p>
 
-  <h6 id="5.2.">5.2. Building a short peptide</h6>
+  <h6 id="5.2">5.2. Building a short peptide</h6>
   <p>
     The clearest density is probably in the middle of the blob
     where there is a long lysine derivative
@@ -750,7 +751,8 @@
     into the molecule chosen at the bottom.
     In this case we want to copy the alanine ligand into the main molecule.
     It will automatically be labelled as chain B.
-    The ligand molecule can now be deleted using the <code>Display Manager</code>.
+    The ligand molecule can now be deleted
+    using the <code>Display Manager</code>.
   </p>
 
   <h6 id="5.4">5.4. Mutate residue range</h6>
@@ -770,7 +772,7 @@
     more real space refinement
     and manual adjustment of the side chains.
     The density for Lys187 is not very strong
-    but it can be seen if you decrease the contour level slightly.
+    so it may be better to delete this side chain.
   </p>
 
   <h6 id="5.5">5.5. Modified residues</h6>
@@ -828,16 +830,15 @@
   </p>
   <p>
     Now we will look at the more automated way of fitting ligands.
-    First, delete the <code>SAH_from_dict</code> molecule
-    using the <code>Display Manager</code>.
+    First, delete the manually fitted <code>SAH_from_dict</code> molecule.
     Go to <code>File / Get Monomer</code>,
     which can be used instead of <code>Search Monomer Library</code>
     if you already know the three letter code.
     Type <code>SAH</code> and click <code>OK</code>.
     As we know which blob the ligand should be in,
     centre the view there and then click <code>Ligand / Find Ligands</code>.
-    The the <code>Select Ligands</code> section,
-    select the newly placed <code>SAH_from_dict</code> ligand.
+    In the <code>Select Ligands</code> section,
+    choose the newly placed <code>SAH_from_dict</code> ligand.
     If you did not know where the ligand should go
     then <code>Where to Search?</code>
     could be changed to <code>Everywhere</code>.
@@ -857,23 +858,23 @@
     except for very high resolution cases where they are observed.
   </p>
 
-  <h3 id="6">6. Adding solvent</h3>
+  <h3 id="6">6. Adding waters</h3>
+  <h6 id="6.1">6.1. Automatic</h6>
   <ol>
-    <li>Adding solvent molecules</li>
     <li>Auto find waters</li>
     <li>Checking waters</li>
     <li>Manually add waters</li>
   </ol>
 
-  <h3 id="8">Building a protein from scratch</h3>
+  <h3 id="7">7. Building a protein from scratch</h3>
 
-  <h6 id="8.1">8.1. Skeleton map</h6>
+  <h6 id="7.1">7.1. Skeleton map</h6>
   <p>
     Use skeleton map to help visualise where the C-alphas are.
     Can see clear one in the middle of the blob.
   </p>
 
-  <h6 id="8.2">8.2. Baton building</h6>
+  <h6 id="7.2">7.2. Baton building</h6>
   <p>
     Start from a position of a C-alpha one away from the end.
     Then you will see an arrow 3.8A in length to place the first C-alpha
