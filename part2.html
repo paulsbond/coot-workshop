@@ -1,0 +1,105 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Coot Workshop</title>
+<meta name="author" content="Paul Bond">
+<meta name="description" content="Coot Workshop for the Protein Crystallography Summer School 2019">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="icons/coot-favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/skeleton.css">
+<link rel="stylesheet" href="css/custom.css">
+
+<div class="container">
+
+  <h1>Coot Workshop</h1>
+  <h4>Building from Scratch</h4>
+  <p>
+    <a href="https://synergy.st-andrews.ac.uk/proteincrystallography">https://synergy.st-andrews.ac.uk/proteincrystallography</a><br>
+    1st to 7th September 2019 (<a href="https://synergy.st-andrews.ac.uk/proteincrystallography/files/2019/05/Timetable-Summer-School-2019-for-Website.pdf">Programme</a>)<br>
+    University of York
+  </p>
+
+  <ol class="no-print">
+    <li><a href="#1">Introduction</a></li>
+    <li><a href="#2">Starting</a>
+      <ol>
+        <li><a href="#2.1">Starting Coot</a></li>
+        <li><a href="#2.2">Opening Files</a></li>
+      </ol>
+    </li>
+    <li><a href="#3">Viewing</a>
+      <ol>
+        <li><a href="#3.1">Controls</a></li>
+        <li><a href="#3.2">Virtual Trackball</a></li>
+        <li><a href="#3.3">Display Manager</a></li>
+        <li><a href="#3.4">Molecule Representations</a></li>
+        <li><a href="#3.5">Symmetry & Packing</a></li>
+        <li><a href="#3.6">Solvent Boundaries</a></li>
+        <li><a href="#3.7">Map Contouring</a></li>
+        <li><a href="#3.8">Go To Atom</a></li>
+      </ol>
+    </li>
+    <li><a href="#4">Fixing the protein</a>
+      <ol>
+        <li><a href="#4.1">Renumber Residue Range</a></li>
+        <li><a href="#4.2">Density Fit</a></li>
+        <li><a href="#4.3">Deleting</a></li>
+        <li><a href="#4.4">Mutating</a></li>
+        <li><a href="#4.5">Rotamers</a></li>
+        <li><a href="#4.6">Real Space Refinement</a></li>
+        <li><a href="#4.7">Adding Terminal Residues</a></li>
+      </ol>
+    </li>
+    <li><a href="#5">Adding solvent</a></li>
+    <li><a href="#6">Building a peptide</a></li>
+    <li><a href="#7">Adding a ligand</a></li>
+  </ol>
+
+  <h3 id="1">1. Introduction</h3>
+
+  <h3 id="7">7. Building a protein from scratch</h3>
+
+  <h6 id="7.1">7.1. Skeleton map</h6>
+  <p>
+    A much smaller molecule will be used
+    to practice building a protein from just a map.
+    Save our changes to the current structure
+    using <code>File / Save Coordinates</code>
+    then delete all molecules and maps.
+    Click <code>Extensions / Load tutorial model and data</code>
+    to load the smaller structure,
+    which has two copies of RNase.
+  </p>
+  <p>
+    Start by going to the C-alpha of residue 2 in the A chain.
+    Make a note of the position of the C-alpha in residue 1 then
+    hide the molecule in the display manager.
+    The backbone trace through the density
+    can be more easily visualised
+    by using a skeleton map
+    Use skeleton map to help visualise where the C-alphas are.
+  </p>
+
+  <h6 id="7.2">7.2. Baton building</h6>
+  <p>
+    Start from a position of a C-alpha one away from the end.
+    Then you will see an arrow 3.8A in length to place the first C-alpha
+    at the end of the chain.
+    From this first C-alpha you will place a baton back at the place
+    you came from.
+    Then place batons to the other end of the peptide.
+    Click dismiss when done.
+    Convert to a C-alpha trace.
+    Will get a backwards and forwards trace.
+    One should fit better than the other.
+    Real space refine zone.
+  </p>
+
+  <hr>
+  <p>
+    Paul Bond,
+    University of York,
+    <a href="mailto:paul.bond@york.ac.uk">paul.bond@york.ac.uk</a>
+  </p>
+</div>
