@@ -13,65 +13,37 @@
 <div class="container">
 
   <h1>Coot Workshop</h1>
-  <h4>Building from Scratch</h4>
-  <p>
-    <a href="https://synergy.st-andrews.ac.uk/proteincrystallography">https://synergy.st-andrews.ac.uk/proteincrystallography</a><br>
-    1st to 7th September 2019 (<a href="https://synergy.st-andrews.ac.uk/proteincrystallography/files/2019/05/Timetable-Summer-School-2019-for-Website.pdf">Programme</a>)<br>
-    University of York
-  </p>
+  <h4>Building From Scratch</h4>
 
   <ol class="no-print">
     <li><a href="#1">Introduction</a></li>
-    <li><a href="#2">Starting</a>
-      <ol>
-        <li><a href="#2.1">Starting Coot</a></li>
-        <li><a href="#2.2">Opening Files</a></li>
-      </ol>
-    </li>
-    <li><a href="#3">Viewing</a>
-      <ol>
-        <li><a href="#3.1">Controls</a></li>
-        <li><a href="#3.2">Virtual Trackball</a></li>
-        <li><a href="#3.3">Display Manager</a></li>
-        <li><a href="#3.4">Molecule Representations</a></li>
-        <li><a href="#3.5">Symmetry & Packing</a></li>
-        <li><a href="#3.6">Solvent Boundaries</a></li>
-        <li><a href="#3.7">Map Contouring</a></li>
-        <li><a href="#3.8">Go To Atom</a></li>
-      </ol>
-    </li>
-    <li><a href="#4">Fixing the protein</a>
-      <ol>
-        <li><a href="#4.1">Renumber Residue Range</a></li>
-        <li><a href="#4.2">Density Fit</a></li>
-        <li><a href="#4.3">Deleting</a></li>
-        <li><a href="#4.4">Mutating</a></li>
-        <li><a href="#4.5">Rotamers</a></li>
-        <li><a href="#4.6">Real Space Refinement</a></li>
-        <li><a href="#4.7">Adding Terminal Residues</a></li>
-      </ol>
-    </li>
-    <li><a href="#5">Adding solvent</a></li>
-    <li><a href="#6">Building a peptide</a></li>
-    <li><a href="#7">Adding a ligand</a></li>
+    <li><a href="#2">Starting</a></li>
+    <li><a href="#3">Baton Building</a></li>
+    <li><a href="#4">Convert to Mainchain</a></li>
+    <li><a href="#5">Assign Sequence</a></li>
+    <li><a href="#6">Build Another Molecule</a></li>
+    <li><a href="#7">Finishing Touches</a></li>
   </ol>
 
-  <h3 id="1">1. Introduction</h3>
-
-  <h3 id="7">7. Building a protein from scratch</h3>
-
-  <h6 id="7.1">7.1. Skeleton map</h6>
+  <h6 id="1">1. Introduction</h6>
   <p>
-    A much smaller molecule will be used
-    to practice building a protein from just a map.
-    Save our changes to the current structure
-    using <code>File / Save Coordinates</code>
-    then delete all molecules and maps.
+    When automatic building fails, typically because the resolution limit of your datais too low, then building the molecule “by hand” may be the only way to proceed.Recognizing the shape of main-chain and side-chain densities is valuable and thistutorial aims to introduce these to you. Note that this tutorial map is an easy mapto build into, the sidechains are (mostly) clear. If you want amore realistic “bad”map, you can apply a resolution limit to the data read in from the MTZ file3.Using just a map and a sequence, we will attempt to generate a model. Thismodel can then be validated and refined with Refmac for several rounds. Withsome experience you should be able to get an R-factor of less than 20% in less than30 minutes.
+  </p>
+  <p>
+    This tutorial is a slightly modified copy of
+    <a href="https://www2.mrc-lmb.cam.ac.uk/personal/pemsley/coot/web/tutorial/tutorial-2.pdf">this one</a>
+    from the website.
+  </p>
+
+  <h6 id="2">2. Starting</h6>
+  <p>
+    I suggest you use Go To Atom and start residue 2 A. This allows you to buildthe complete A chain in the correct direction and you can directly compare it to thereal structure afterward4. Once you are at residue 2A, use the Display Manager toturn off the‘‘tutorial-modern.pdb’’and don’t look at it again until you havefinished building, validating and refining.
+    You can calculate the map skeleton in Coot directly:Calculate→Map Skeleton. . .→On
+  </p>
+  <p>
     Click <code>Extensions / Load tutorial model and data</code>
     to load the smaller structure,
     which has two copies of RNase.
-  </p>
-  <p>
     Start by going to the C-alpha of residue 2 in the A chain.
     Make a note of the position of the C-alpha in residue 1 then
     hide the molecule in the display manager.
@@ -81,7 +53,13 @@
     Use skeleton map to help visualise where the C-alphas are.
   </p>
 
-  <h6 id="7.2">7.2. Baton building</h6>
+  <h6 id="3">3. Baton Building</h6>
+  <p>
+      This can be used to “baton build” a map. You can turn off the coordinates andtry it if you like (the Baton Building window can be found by clicking“Ca BatonMode. . . ”in the Other Modelling Tools dialog
+      Remember, when you start, you are placing a CA at the batontipand at thestart you are placing atom CA 1. This might seem that you are “double-backing”on yourself - which can be confusing the first time.So build from the N-terminus to the C (it takes about 15 minutes or so). Thereare 96 residues to build.
+      Note that you need at least 6 CA baton points for CA Zone to Mainchain towork5
+      If you look at ”Paul’s Key Bindings”6in the Coot Wiki7, you will see a page ofcustomizations. One of those customizations can help you inBaton-Building mode- and that is the “quoteleft” key binding.So, cut the bindings out of the web page, paste them into a file and then useCalculate→Run Script. . .to evaluate that file8. To check that your key-bindingsare activated, UseExtensions→Key Bindings. . ..Now, we can use quoteleft (or “backquote”, ”‘” is how it mightappear on thekeyboard) to accept the baton position - this is much more convenient than usingthe “Accept” button9.
+  </p>
   <p>
     Start from a position of a C-alpha one away from the end.
     Then you will see an arrow 3.8A in length to place the first C-alpha
@@ -94,6 +72,32 @@
     Will get a backwards and forwards trace.
     One should fit better than the other.
     Real space refine zone.
+  </p>
+
+  <h6 id="4">4. Convert to Mainchain</h6>
+  <p>
+    At some stage10you will come to a point where no progress can be made, the onlydirection takes us into density we’ve already built into. OK, so stop:Dismiss
+    Now we need to turn these CA positions into mainchain.Calculate→OtherModelling Tools→CA Zone to Mainchain. Use theGo To Atomdialog to centre onthe first residue of “Baton Atoms”, click it, then centre on the last residue of “BatonAtoms” and click on that.
+    [Coot thinks for a several seconds while building a mainchain]OK, great, we have a mainchain. Let’s tidy it up:Extensions→Stepped Refine.Refine the “mainchain” molecule, watch it as it goes. Is it making mistakes?That refinement may have gone to quickly to make a note of problem areas, souseValidation→Density Fit Analysison the “mainchain” molecule and find areasthat are marked with large spikes.“There are none” you say? Good11. Let’s move on.
+  </p>
+
+  <h6 id="5">5. Assign Sequence</h6>
+  <p>
+    Let’s tell Coot that we have a sequence associated with this set of CA points. So,Extensions→Dock Sequence→Assign SequenceTurn on auto-fit of residuesSo when the file is assigned “Assign Closest fragment”.[Coot thinks for a several seconds while assigning sidechains, then goes aboutmutating and fitting the residues
+    What’s that you say? Coot didn’t do that? Well, that’s becauseyou mainchainmodel is too bad for Coot to recognize the sidechain positions. You need to reviewyou mainchain model and make sure sure that the CBs are in density and pointing
+    in the right direction. When you have improved you model sufficiently well, Cootwill apply the sequence to it using the above method.Change the Chain ID from “ “ to “A”.
+  </p>
+
+  <h6 id="6">6. Build Another Molecule</h6>
+  <p>
+    Now we need to build another molecule (the NCS related copy).So using themap skeleton search around to find a volume of density not already build (and notsymmetry related to the model already built).Here’s a hint, find the a helix in the skeleton.•Using the Other Modelling Tools, place a helix over the skeleton points of theskeleton.•Improve the fit of the skeleton, taking note that the N and C terminus of thehelix are well-fitted.•Associate the same sequence with the new Helix molecule•Dock sidechains on the new molecule (it should work if your helix is good)•Now compare the Helix molecule with the previously built model.  Findmatching start and end point on the helix and previous model.•LSQ fit a copy of the previous model on top of the Helix molecule[Coot displayes a new molecule that almost fits the so-far unbuilt density.]Let’s call this new chain, chain “B”•Now clean up the fit, first do a rigid body refinement of the wholenewmodel. . .•then an All Molecule stepped refine should make the fit nice
+    Merge the “B” chain into the “A” chain molecule above:Calculate→Merge molecules→Append/Insert Molecule(s)[Choose the mostrecent mainchain molecule]into Molecule[Choose the molecule of the A chain]→Merge.
+    Unfortunately, there is no slick way to make Coot rebuild ghosts for this compositemolecule. We need to write out the pdb file and read it in again -inelegant.File→Save Coordinates,[Choose the molecule that does now contains boththe A and B chains]→Select Filename. . .Pick a filename then useFile→OpenCoordinates. . .to read it in again.Check the console as you do this, Coot will tell you that thereare NCS relatedmolecules. If12it does this, we’re in business.In the following, you will need to know the first and last residue numbers inthe “A” chain. Use the Go To Atom dialog to find them.If ghosts appear, use:Extensions→NCS. . .→Copy NCS Residue Range. . .using “A”13as the Mas-ter Chain ID then fill in the first and last residue numbers of theA chain.[Coot builds the B chain as an NCS copy of the A chain
+  </p>
+
+  <h6 id="7">7. Finishing Touches</h6>
+  <p>
+      Use NCS jumping (the ’O’ key) to see NCS differences.Now unmodelled blobs - like we did before.Find the ligand (3GP), merge it in.Refine using Refmac.Validate.Rebuild
   </p>
 
   <hr>
