@@ -887,9 +887,28 @@
 
   <h6 id="6.2">6.2. Manual</h6>
   <p>
-    Difference map peaks.
-    Add water (w) then refine (x).
-    Merge molecules.
+    Automatic water finding will miss some waters that can be built manually.
+    In order to find peaks that might be water molecules,
+    go to <code>Validate / Difference Map Peaks</code>
+    Leave the default 5 r.m.s.d.
+    but uncheck <code>Find Negative Peaks Also?</code>
+    as peaks for missing waters will be positive.
+    Use <code>.</code> and <code>,</code> to move up and down the list.
+    The biggest difference map peaks
+    are for the missing sulfur atoms in the methionine residues.
+    There are a lot of difference map peaks
+    that have already been built into
+    so it would be better to do this after another round of refinement.
+    However, peak 16 should be for a missing water molecule
+    that hasn't been added automatically
+    (if not then find an empty water peak).
+    Click <code>Place Atom At Pointer</code> then <code>OK</code>
+    to add a water molecule.
+    You can also use the shortcut <code>w</code> on the keyboard.
+    Press <code>x</code> to refine the water position.
+    The waters will be added to a new molecule
+    called <code>Pointer Atoms</code>
+    so merge this into the main molecule before deleting it.
   </p>
 
   <h3 id="7">7. Building a protein from scratch</h3>
