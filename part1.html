@@ -39,17 +39,32 @@
     <li><a href="#4">Fixing the protein</a>
       <ol>
         <li><a href="#4.1">Renumber Residue Range</a></li>
-        <li><a href="#4.2">Density Fit</a></li>
+        <li><a href="#4.2">Density Fit Analysis</a></li>
         <li><a href="#4.3">Deleting</a></li>
         <li><a href="#4.4">Mutating</a></li>
         <li><a href="#4.5">Rotamers</a></li>
         <li><a href="#4.6">Real Space Refinement</a></li>
-        <li><a href="#4.7">Adding Terminal Residues</a></li>
+        <li><a href="#4.7">Alternate conformations</a></li>
+        <li><a href="#4.8">Adding Terminal Residues</a></li>
+        <li><a href="#4.9">Peptide bonds</a></li>
       </ol>
     </li>
-    <li><a href="#5">Adding solvent</a></li>
-    <li><a href="#6">Building a peptide</a></li>
-    <li><a href="#7">Adding a ligand</a></li>
+    <li><a href="#5">Adding ligands</a>
+      <ol>
+        <li><a href="#5.1">Unmodelled blobs</a></li>
+        <li><a href="#5.2">Building a short peptide</a></li>
+        <li><a href="#5.3">Merge molecules</a></li>
+        <li><a href="#5.4">Mutate residue range</a></li>
+        <li><a href="#5.5">Modified residues</a></li>
+        <li><a href="#5.6">Adding a known ligand</a></li>
+      </ol>
+    </li>
+    <li><a href="#6">Adding waters</a>
+      <ol>
+        <li><a href="#6.1">Automatic</a></li>
+        <li><a href="#6.2">Manual</a></li>
+      </ol>
+    </li>
   </ol>
 
   <h3 id="1">1. Introduction</h3>
@@ -911,65 +926,6 @@
     The waters will be added to a new molecule
     called <code>Pointer Atoms</code>
     so merge this into the main molecule before deleting it.
-  </p>
-
-  <h3 id="7">7. Building a protein from scratch</h3>
-
-  <h6 id="7.1">7.1. Skeleton map</h6>
-  <p>
-    A much smaller molecule will be used
-    to practice building a protein from just a map.
-    Save our changes to the current structure
-    using <code>File / Save Coordinates</code>
-    then delete all molecules and maps.
-    Click <code>Extensions / Load tutorial model and data</code>
-    to load the smaller structure,
-    which has two copies of RNase.
-  </p>
-  <p>
-    Start by going to the C-alpha of residue 2 in the A chain.
-    Make a note of the position of the C-alpha in residue 1 then
-    hide the molecule in the display manager.
-    The backbone trace through the density
-    can be more easily visualised
-    by using a skeleton map
-    Use skeleton map to help visualise where the C-alphas are.
-  </p>
-
-  <h6 id="7.2">7.2. Baton building</h6>
-  <p>
-    Start from a position of a C-alpha one away from the end.
-    Then you will see an arrow 3.8A in length to place the first C-alpha
-    at the end of the chain.
-    From this first C-alpha you will place a baton back at the place
-    you came from.
-    Then place batons to the other end of the peptide.
-    Click dismiss when done.
-    Convert to a C-alpha trace.
-    Will get a backwards and forwards trace.
-    One should fit better than the other.
-    Real space refine zone.
-  </p>
-
-  <p>
-    Extra?
-    Opening Coot via i2? Competition to see who gets the lowest R-free?
-    Trying other online tutorials?
-    Build whole peptide?
-  </p>
-  <p>
-      Sequence from Gly117 to Gln364:
-    </p>
-    <pre><code>117 GVCWIYYPDGGSLVGEVNEDGEMTGEKIAYVYPDERTALYGKFIDGEMIEGKLATLMSTE
-177 EGRPHFELMPGNSVYHFDKSTSSCISTNALLPDPYESERVYVAESLISSAGEGLFSKVAV
-237 GPNTVMSFYNGVRITHQEVDSRDWALNGATLSLDEETVIDVPEPYNHVSKYCASLGHKAN
-297 HSFTPNCIYDMFVHPRFGPIKCIRTLRAVEADEELTVAYGYDHSPPGKSGPEAPEWYQVE
-357 LKAFQATQ</code></pre>
-
-  <p>
-    Other resources:
-    Coot manual
-    Coot tutorials.
   </p>
 
   <hr>
