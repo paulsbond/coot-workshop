@@ -122,10 +122,30 @@
 
   <h6 id="4">4. Convert to Mainchain</h6>
   <p>
-    Note that you need at least 6 CA baton points for CA Zone to Mainchain towork5
-    At some stage10you will come to a point where no progress can be made, the onlydirection takes us into density we’ve already built into. OK, so stop:Dismiss
-    Now we need to turn these CA positions into mainchain.Calculate→OtherModelling Tools→CA Zone to Mainchain. Use theGo To Atomdialog to centre onthe first residue of “Baton Atoms”, click it, then centre on the last residue of “BatonAtoms” and click on that.
-    [Coot thinks for a several seconds while building a mainchain]OK, great, we have a mainchain. Let’s tidy it up:Extensions→Stepped Refine.Refine the “mainchain” molecule, watch it as it goes. Is it making mistakes?That refinement may have gone to quickly to make a note of problem areas, souseValidation→Density Fit Analysison the “mainchain” molecule and find areasthat are marked with large spikes.“There are none” you say? Good11. Let’s move on.
+    Now we need to turn these CA positions into mainchain.
+    Use <code>Go To Atom</code> to centre on the first residue
+    of the <code>Baton Atoms</code> molecule.
+    Then use <code>Ca Zone -> Mainchain</code>
+    in <code>Other Modelling Tools</code>
+    and click on the first CA.
+    You will need to wait several seconds while it builds
+    (note that you need at least 6 baton points for this to work).
+    Two new molecules will be created:
+    <code>mainchain-forwards</code> and <code>mainchain-backwards</code>
+    traced in different directions.
+    We know the forward direction is correct
+    (see how much better the carbonyls fit)
+    so the other molecule can be deleted.
+  </p>
+  <p>
+    The backbone now needs to be tidied up.
+    Go to <code>Extensions / All Molecule / Stepped Refine</code>,
+    pick <code>mainchain-forwards</code>
+    and watch it as it goes.
+    Is it making mistakes?
+    That refinement may have gone to quickly to make a note of problem areas.
+    Use <code>Density fit analysis</code>
+    and real space refinement to correct anything that's wrong.
   </p>
 
   <h6 id="5">5. Assign Sequence</h6>
