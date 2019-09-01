@@ -117,7 +117,6 @@
     Click <code>Dismiss</code> on the baton controls when done.
     There may also be a molecule called <code>Baton Atom Guide Points</code>
     that needs deleting.
-    You can probably also turn the map skeleton off at this stage.
   </p>
 
   <h6 id="4">4. Convert to Mainchain</h6>
@@ -175,13 +174,56 @@
     Use <code>Draw / Sequence View</code> to look for
     alanine residues that don't match the sequence
     (possibly at the termini).
+    Use <code>Edit / Change Chain IDs</code> to label this chain as A.
   </p>
 
   <h6 id="6">6. Build Another Molecule</h6>
   <p>
-    Now we need to build another molecule (the NCS related copy).So using themap skeleton search around to find a volume of density not already build (and notsymmetry related to the model already built).Here’s a hint, find the a helix in the skeleton.•Using the Other Modelling Tools, place a helix over the skeleton points of theskeleton.•Improve the fit of the skeleton, taking note that the N and C terminus of thehelix are well-fitted.•Associate the same sequence with the new Helix molecule•Dock sidechains on the new molecule (it should work if your helix is good)•Now compare the Helix molecule with the previously built model.  Findmatching start and end point on the helix and previous model.•LSQ fit a copy of the previous model on top of the Helix molecule[Coot displayes a new molecule that almost fits the so-far unbuilt density.]Let’s call this new chain, chain “B”•Now clean up the fit, first do a rigid body refinement of the wholenewmodel. . .•then an All Molecule stepped refine should make the fit nice
-    Merge the “B” chain into the “A” chain molecule above:Calculate→Merge molecules→Append/Insert Molecule(s)[Choose the mostrecent mainchain molecule]into Molecule[Choose the molecule of the A chain]→Merge.
-    Unfortunately, there is no slick way to make Coot rebuild ghosts for this compositemolecule. We need to write out the pdb file and read it in again -inelegant.File→Save Coordinates,[Choose the molecule that does now contains boththe A and B chains]→Select Filename. . .Pick a filename then useFile→OpenCoordinates. . .to read it in again.Check the console as you do this, Coot will tell you that thereare NCS relatedmolecules. If12it does this, we’re in business.In the following, you will need to know the first and last residue numbers inthe “A” chain. Use the Go To Atom dialog to find them.If ghosts appear, use:Extensions→NCS. . .→Copy NCS Residue Range. . .using “A”13as the Mas-ter Chain ID then fill in the first and last residue numbers of theA chain.[Coot builds the B chain as an NCS copy of the A chain
+    Now we need to build another molecule (the NCS related copy).
+    We will first just build a small part.
+    Using the map skeleton, search around to find a helix
+    not already built (and not symmetry related to the model already built).
+    Then use <code>Place Helix Here</code>
+    in <code>Other Modelling Tools</code>
+    to place a helix in the density.
+    Make sure the placed helix fits the density well,
+    dock the sequence and fit the sidechains.
+  </p>
+  <p>
+    Now we will superpose a copy of the A chain onto this helix.
+    Now compare the Helix molecule with the previously built model.
+    Find matching start and end point on the helix and previous model.
+    LSQ fit a copy of the previous model on top of the Helix molecule
+    [Coot displayes a new molecule that almost fits the so-far unbuilt density.]
+    Let’s call this new chain, chain “B”
+    Now clean up the fit, first do a rigid body refinement of the whole new model
+    then an All Molecule stepped refine should make the fit nice
+    Merge the “B” chain into the “A” chain molecule above:
+    Calculate→Merge molecules→Append/Insert Molecule(s)
+    [Choose the most recent mainchain molecule]
+    into Molecule
+    [Choose the molecule of the A chain] → Merge.
+  </p>
+  <p>
+    Unfortunately, there is no slick way to make Coot rebuild ghosts
+    for this composite molecule.
+    We need to write out the pdb file and read it in again -inelegant.
+    File→Save Coordinates,
+    [Choose the molecule that does now contains both the A and B chains]→
+    Select Filename
+    Pick a filename then useFile→OpenCoordinates
+    to read it in again.
+    Check the console as you do this,
+    Coot will tell you that there are NCS related molecules.
+    If it does this, we’re in business.
+    In the following, you will need to know
+    the first and last residue numbers inthe “A” chain.
+    Use the Go To Atom dialog to find them.
+    If ghosts appear, use:
+    Extensions→NCS. . .→Copy NCS Residue Range. . .
+    using “A”13as the Mas-ter Chain ID
+    then fill in the first and last residue numbers of theA chain.
+    [Coot builds the B chain as an NCS copy of the A chain]
   </p>
 
   <h6 id="7">7. Finishing Touches</h6>
