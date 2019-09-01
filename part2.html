@@ -13,7 +13,7 @@
 <div class="container">
 
   <h1>Coot Workshop</h1>
-  <h4>Building From Scratch</h4>
+  <h4>Part 2 - Building From Scratch</h4>
 
   <ol class="no-print">
     <li><a href="#1">Introduction</a></li>
@@ -27,30 +27,49 @@
 
   <h6 id="1">1. Introduction</h6>
   <p>
-    When automatic building fails, typically because the resolution limit of your datais too low, then building the molecule “by hand” may be the only way to proceed.Recognizing the shape of main-chain and side-chain densities is valuable and thistutorial aims to introduce these to you. Note that this tutorial map is an easy mapto build into, the sidechains are (mostly) clear. If you want amore realistic “bad”map, you can apply a resolution limit to the data read in from the MTZ file3.Using just a map and a sequence, we will attempt to generate a model. Thismodel can then be validated and refined with Refmac for several rounds. Withsome experience you should be able to get an R-factor of less than 20% in less than30 minutes.
-  </p>
-  <p>
     This tutorial is a slightly modified copy of
     <a href="https://www2.mrc-lmb.cam.ac.uk/personal/pemsley/coot/web/tutorial/tutorial-2.pdf">this one</a>
-    from the website.
+    from the <i>Coot</i> website.
+    It assumes you are familiar with the concepts covered in
+    <a href="part1.html">part 1</a> of the workshop.
+  </p>
+  <p>
+    When automatic building fails,
+    typically because the resolution limit of your data is too low,
+    then building the molecule "by hand" may be the only way to proceed.
+    Recognizing the shape of main-chain and side-chain densities is valuable
+    and this tutorial aims to introduce these to you.
+    Note that this tutorial map is an easy map to build into,
+    the side chains are (mostly) clear.
+    Using just a map and a sequence, we will attempt to generate a model.
+    This model can then be validated and refined with Refmac for several rounds.
+    With some experience you should be able to get
+    an R-factor of less than 20% in less than 30 minutes.
   </p>
 
   <h6 id="2">2. Starting</h6>
   <p>
-    I suggest you use Go To Atom and start residue 2 A. This allows you to buildthe complete A chain in the correct direction and you can directly compare it to thereal structure afterward4. Once you are at residue 2A, use the Display Manager toturn off the‘‘tutorial-modern.pdb’’and don’t look at it again until you havefinished building, validating and refining.
-    You can calculate the map skeleton in Coot directly:Calculate→Map Skeleton. . .→On
+    Open <code>Coot</code>, then click
+    <code>Extensions / Load tutorial model and data</code>
+    to load the structure.
+    It has two chains with 96 residues in each.
+    Start by going to the C-alpha of residue 2 in the A chain.
+    The idea is to build the complete A chain in the forward direction
+    and compare it to the real structure afterwards.
   </p>
   <p>
-    Click <code>Extensions / Load tutorial model and data</code>
-    to load the smaller structure,
-    which has two copies of RNase.
-    Start by going to the C-alpha of residue 2 in the A chain.
     Make a note of the position of the C-alpha in residue 1 then
-    hide the molecule in the display manager.
+    hide the molecule in the <code>Display Manager</code>
+    until you have finished building, validating and refining.
+    It is also a good idea to hide the difference map
+    because we are not interested in the previously built model.
+  </p>
+  <p>
     The backbone trace through the density
     can be more easily visualised
-    by using a skeleton map
-    Use skeleton map to help visualise where the C-alphas are.
+    by using a skeleton map.
+    Go to <code>Calculate / Map Skeleton</code>
+    and change it to <code>On</code>.
   </p>
 
   <h6 id="3">3. Baton Building</h6>
