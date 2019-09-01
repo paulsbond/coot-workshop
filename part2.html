@@ -74,27 +74,48 @@
 
   <h6 id="3">3. Baton Building</h6>
   <p>
-      This can be used to “baton build” a map. You can turn off the coordinates andtry it if you like (the Baton Building window can be found by clicking“Ca BatonMode. . . ”in the Other Modelling Tools dialog
-      Remember, when you start, you are placing a CA at the batontipand at thestart you are placing atom CA 1. This might seem that you are “double-backing”on yourself - which can be confusing the first time.So build from the N-terminus to the C (it takes about 15 minutes or so). Thereare 96 residues to build.
-      Note that you need at least 6 CA baton points for CA Zone to Mainchain towork5
-      If you look at ”Paul’s Key Bindings”6in the Coot Wiki7, you will see a page ofcustomizations. One of those customizations can help you inBaton-Building mode- and that is the “quoteleft” key binding.So, cut the bindings out of the web page, paste them into a file and then useCalculate→Run Script. . .to evaluate that file8. To check that your key-bindingsare activated, UseExtensions→Key Bindings. . ..Now, we can use quoteleft (or “backquote”, ”‘” is how it mightappear on thekeyboard) to accept the baton position - this is much more convenient than usingthe “Accept” button9.
+    We will now start to “baton build” the map.
+    Go to <code>Calculate / Other Modelling Tools</code> to open another toolbar
+    and click <code>C-alpha Baton Mode</code>.
+    A set of controls will appear,
+    as well as a white baton
+    and a set of pink points that show possible places for a C-alpha
+    that are 3.8 &angst; away from the current position.
+  </p>
+  <div class="row">
+    <div class="one-half column"><img src="img/baton_view.png" alt="Baton View"></div>
+    <div class="one-half column"><img src="img/baton_controls.png" alt="Baton Controls"></div>
+  </div>
+  <p>
+    Remember, when you start, you are placing a CA at the baton tip
+    for residue 1 (the N-terminus).
+    After placing CA for residue 1,
+    you will get a choice of positions for residue 2,
+    which is currently at the centre of the view.
+    This might seem that you are "double-backing" on yourself
+    - which can be confusing the first time.
   </p>
   <p>
-    Start from a position of a C-alpha one away from the end.
-    Then you will see an arrow 3.8A in length to place the first C-alpha
-    at the end of the chain.
-    From this first C-alpha you will place a baton back at the place
-    you came from.
-    Then place batons to the other end of the peptide.
-    Click dismiss when done.
-    Convert to a C-alpha trace.
-    Will get a backwards and forwards trace.
-    One should fit better than the other.
-    Real space refine zone.
+    Press <code>Try Another</code> and <code>Previous Tip Position</code>
+    to cycle through the points,
+    <code>Lengthen</code> and <code>Shorten</code> to change the baton length,
+    and <code>Accept</code> to place a CA and move onto the next residue.
+    If you have installed the template keybindings
+    (through <code>Extensions / Settings</code>).
+    Then you can use the shortcut
+    <code>A</code> (<code>Shift</code><code>a</code>)
+    to accept the baton position.
+  </p>
+  <p>
+    Build from the N-terminus to the C-terminus.
+    There are 96 residues to build and it takes about 15 minutes or so.
+    If you make a mistake you can press <code>Undo</code>
+    to move back one residue.
   </p>
 
   <h6 id="4">4. Convert to Mainchain</h6>
   <p>
+    Note that you need at least 6 CA baton points for CA Zone to Mainchain towork5
     At some stage10you will come to a point where no progress can be made, the onlydirection takes us into density we’ve already built into. OK, so stop:Dismiss
     Now we need to turn these CA positions into mainchain.Calculate→OtherModelling Tools→CA Zone to Mainchain. Use theGo To Atomdialog to centre onthe first residue of “Baton Atoms”, click it, then centre on the last residue of “BatonAtoms” and click on that.
     [Coot thinks for a several seconds while building a mainchain]OK, great, we have a mainchain. Let’s tidy it up:Extensions→Stepped Refine.Refine the “mainchain” molecule, watch it as it goes. Is it making mistakes?That refinement may have gone to quickly to make a note of problem areas, souseValidation→Density Fit Analysison the “mainchain” molecule and find areasthat are marked with large spikes.“There are none” you say? Good11. Let’s move on.
