@@ -91,9 +91,9 @@
     (<a href="https://doi.org/10.1093/emboj/cdg025">Kwon <i>et al.</i> 2003</a>).
     The model was processed using <i>phaser.sculptor</i>,
     which trims unaligned regions using a sequence alignment
-    and truncates side chains that differ between the model and target.
-    Pruning the MR model was not needed to find a solution in this case
-    as it is so similar, but in general it is good practice.
+    and truncates side chains that differ between the model and target
+    (pruning was not really needed in this case, 
+    but in general it is good practice).
     MR was done using <i>phaser</i>
     through the <i>CCP4i2</i> Basic Molecular Replacement task.
     This was followed by <i>csymmatch</i>
@@ -114,7 +114,7 @@
   <p>
     The MR solution in this example is pretty good
     so fixing errors directly in Coot is realistic.
-    If the MR model is worse quality then an autobuilding software
+    If the MR model was worse quality then an autobuilding software
     would normally be used first to complete the structure.
   </p>
 
@@ -122,11 +122,13 @@
 
   <h6 id="2.1">2.1. Starting Coot</h6>
   <p>
-    Type <code>coot</code> on the command line.
+    Open a terminal and type <code>coot</code>.
     The <i>Coot</i> window should appear.
     For this to work, the coot executable should be in your path.
-    If it is not then you need to source one of the CCP4 setup scripts:
-    <pre><code>source ccp4-7.0/bin/ccp4.setup-csh  # if shell is csh/tcsh<br>source ccp4-7.0/bin/ccp4.setup-sh   # if shell is bash</code></pre>
+    <!-- If it is not then you need to source one of the CCP4 setup scripts:
+    <pre><code>source ccp4-7.0/bin/ccp4.setup-csh  # if shell is csh/tcsh<br>source ccp4-7.0/bin/ccp4.setup-sh   # if shell is bash</code></pre> -->
+    If it is not then you first need to setup your environment
+    using <code>setup_xtal</code>.
   </p>
   <p>
     The <i>Coot</i> window should look something like this:
@@ -162,8 +164,9 @@
   <p>
     A window will appear asking you to fix nomenclature errors.
     This is a common occurrence when opening coordinates and is usually because
-    there is an atom naming convention for symmetrical residues,
-    e.g. which way round CD1 and CD2 are in PHE, that most programs ignore.
+    there is an atom naming convention for symmetrical residues
+    (e.g. which way round CD1 and CD2 are in PHE)
+    that most programs ignore.
     Click <code>Yes</code> to fix them.
   </p>
   <p>
@@ -366,10 +369,10 @@
     or the lists at the bottom of the window.
     Clicking <code>Apply</code> will move the view to the selected atom.
     This window can also be used to skip through residues using the
-    <code>Next Residue</code> and <code>Previous Residue</code> buttons,
-    although it is much quicker to use <code>Space</code> (for next residue)
-    and <code>Shift</code><code>Space</code> (for previous residue)
-    on the keyboard.
+    <code>Next Residue</code> and <code>Previous Residue</code> buttons
+    (although it is much quicker to use
+    <code>Space</code> and <code>Shift</code><code>Space</code>
+    on the keyboard).
     Go to Glu72, which has its side chain in the wrong conformation.
     The clear density for the correct side chain position
     (where there is no model)
@@ -451,9 +454,9 @@
   </p>
   <img src="img/delete.png" alt="Delete">
   <p>
-    Now click on one of the atoms in His116 to delete the residue close.
-    Individual atoms (or side chains) can be deleted in
-    this way by selecting this option in the window before clicking.
+    Now click on one of the atoms in His116 to delete the residue.
+    Individual atoms (or side chains) can be deleted in the same way
+    by selecting this option in the window before clicking.
     You can check <code>Keep Delete Active</code> to keep the delete window open
     so that multiple residues can be deleted.
     If the residues are sequential
@@ -467,14 +470,13 @@
     All of the residues in this structure are the correct type
     so do not need mutating.
     However, quite a few of the residues do not have complete side chains
-    and the mutate function will work to rebuild them.
+    and the mutate function will also work to rebuild them.
     Go to Met139 and see that the side chain is not complete.
     There is even a loose atom claiming to be the CE atom.
     It must have been left there during model preparation
     and this is the position it ended up in after refinement.
     There is clear difference density
-    where the side chain is supposed to go
-    (this is another clear sign that our MR solution was successful).
+    where the side chain is supposed to go.
     Click on the <code>Simple Mutate</code> button in the refinement toolbar
     then click on an atom of Met139.
     A list of residue types should appear.
@@ -486,7 +488,7 @@
   <p>
     Now we need to move the side chain into the correct conformation.
     Click the <code>Rotamers</code> button in the refinement toolbar
-    and then click on of the atoms in Met139.
+    and then click one of the atoms in Met139.
     A list of rotamers for that residue type appears.
     A rotamer is simply a commonly observed side chain conformation
     and this list is ordered from most to least common.
@@ -497,7 +499,7 @@
     to cycle through the rotamers.
     This can be done while adjusting the view in the main window.
     Each rotamer has a name that roughly describes the chi angles:
-    p for 60, m for -60, t for 180
+    p for 60, m for -60, t for 180,
     and a number for the final angle of sp2 side chains.
     The closest rotamer for Met139 is mmt.
     Select this and click <code>OK</code>.
@@ -539,7 +541,8 @@
     Higher numbers will use the restraints less.
     Click the <code>Estimate</code> button,
     which will try to choose a sensible weight for the current map.
-    The map that you are refining into can be changed
+    If you have multiple maps open,
+    the map that you are refining into can be changed
     with the <code>Select Map</code> button underneath.
   </p>
   <p>
@@ -551,13 +554,14 @@
     You need to click twice because it expects a zone,
     i.e. you need to click the first and last residue
     in the range you want to refine.
-    Some refinement traffic lights will appear.
+    Some refinement traffic lights will appear:
   </p>
   <img src="img/refinement.png" alt="Refinement">
   <p>
     The numbers show
     how many standard deviations the restraints are from their ideal values.
-    There is also a simple traffic light system from green to red.
+    There is also a simple traffic light system
+    showing (from good to bad) green, yellow, orange and red.
     The fit to density can be assessed by eye.
     An initial minimisation has been done
     and the result is shown as a white copy of the atoms.
@@ -602,7 +606,7 @@
     but auto-fitting puts the rotamer back in the same place.
     In this case the side chain could exist in two conformations in the crystal
     and the negative difference density
-    is because we have one side chain at 100% occupancy.
+    is because we only have one at 100% occupancy.
     Press the <code>Add Alt Conf</code> button on the refinement toolbar.
     The following window should appear:
   </p>
@@ -637,7 +641,8 @@
     click <code>Add Terminal Residue</code> on the refinement toolbar
     and click on an atom of Tyr337.
     This will build an alanine as the next residue.
-    Press <code>h</code> to refine it and then mutate it to aspartic acid.
+    Press <code>h</code> to refine it, mutate it to aspartic acid,
+    then fit the rotamer and refine again.
     Go to Pro350 and do the same for the other end of the loop.
     The backbone is quite clear for Ala349 and Glu348.
     There is some density for Pro347
@@ -671,7 +676,7 @@
     This example should be a cis-peptide instead.
     Click the <code>Edit Backbone Torsions</code> button
     on the refinement toolbar and then click an atom of the peptide.
-    This allows you to rotate either the whole peptide
+    This allows you to rotate either the whole peptide bond
     or just the carbonyl using sliders.
     A Ramachandran plot for the residues either side gets updated as you rotate.
     One of the residues starts in the white disallowed region of the plot,
@@ -692,7 +697,7 @@
     These can be temporarily turned off
     from <code>Refine/Regularize Control</code>
     if you are struggling to force the backbone into the correct conformation,
-    but in general these should be kept on
+    but in general they should be kept on
     to avoid building incorrect cis-peptides.
     Cis-peptides are only common for X-Pro bonds.
     If the second residue is something other than proline
@@ -747,12 +752,13 @@
     This residue can now be treated the same as another peptide.
     Use <code>Add Terminal Residue</code> to add
     one extra residue to the C-terminus and two to the N-terminus.
-    Past this point the positions are not very well supported by the density.
+    Past this point
+    the positions are not very well supported by the density yet.
     Make sure to refine each residue into position after it is added.
     This method for building a polyalanine chain
     is good for a short peptide ligand,
     but for longer chains the baton building mode should be used.
-    This will be covered in a later section.
+    (which is covered in part 2).
   </p>
 
   <h6 id="5.3">5.3. Merge molecules</h6>
@@ -768,7 +774,7 @@
     into the molecule chosen at the bottom.
     In this case we want to copy the alanine ligand into the main molecule.
     It will automatically be labelled as chain B.
-    The ligand molecule can now be deleted
+    The <code>ALA_from_dict</code> molecule can now be deleted
     using the <code>Display Manager</code>.
   </p>
 
@@ -816,7 +822,7 @@
     to refine the modified residue back into place.
   </p>
 
-  <h6 id="5.6">5.6. Adding a known ligand</h3>
+  <h6 id="5.6">5.6. Adding a known ligand</h6>
   <p>
     This section will deal with placing a ligand
     that is already in the monomer library.
@@ -829,12 +835,12 @@
     Type <code>homocysteine</code> in the textbox and click <code>Search</code>.
     Then select <code>SAH</code> from the list
     to place the residue at the centre of the view.
-    We will not attempt to fit the ligand into density manually.
+    We will first attempt to fit the ligand into the density manually.
     Select <code>Rotate Translate</code> in the refinement toolbar
     and click on SAH twice.
     This brings up a window with sliders to adjust
     rotation and translation about the X, Y and Z axis.
-    The axis are relative to the view and not the coordinate axis:
+    The axes are relative to the view and not the coordinate axes:
     X is left to right, Y is top to bottom and Z is perpendicular to the screen.
   </p>
   <img src="img/rotate_translate.png" alt="Rotate Translate">
@@ -842,7 +848,7 @@
     Use the sliders to get the orientation of the ligand roughly correct,
     then use real space refinement to try and drag the atoms into place.
     If you are struggling to get the molecule into place
-    try using other refinement tools such as
+    try experimenting with other refinement tools such as
     <code>Fixed Atoms</code> or <code>Edit Chi Angles</code>.
   </p>
   <p>
@@ -854,11 +860,14 @@
     Type <code>SAH</code> and click <code>OK</code>.
     As we know which blob the ligand should be in,
     centre the view there and then click <code>Ligand / Find Ligands</code>.
+  </p>
+  <img src="img/find_ligands.png" alt="Find Ligands">
+  <p>
     In the <code>Select Ligands</code> section,
     choose the newly placed <code>SAH_from_dict</code> ligand.
-    If you did not know where the ligand should go
-    then <code>Where to Search?</code>
-    could be changed to <code>Everywhere</code>.
+    Change <code>Where to Search?</code> to <code>Right here</code>.
+    If you did not know where the ligand should go then 
+    you could use <code>Everywhere</code>.
     You could also increase <code>Number of Conformers to Search</code>.
     This will take longer but have more chance of fitting the ligand correctly.
     Ligands with more rotatable bonds are likely to need higher numbers.
@@ -888,6 +897,7 @@
     and select <code>Find Waters</code>.
     Leave the default settings and click <code>Find Waters</code>.
   </p>
+  <img src="img/find_waters.png" alt="Find Waters">
   <p>
     A new chain will be made in the molecule to contain the new waters.
     The waters should be checked by eye.
@@ -897,35 +907,45 @@
     check <code>Show Residue Environment?</code> and click <code>OK</code>.
     Then press <code>space</code> to move through the water molecules
     and examine them one at a time.
-    To make the view always jump from one atom to the next instead of sliding
+    To make the view always jump from one atom to the next
+    instead of sliding,
     turn of <code>Smooth Recentering</code>
     in the <code>General</code> section of <code>Edit / Preferences</code>.
+    There is no need to check all the waters during the workshop
+    but you should when working on your own structure.
   </p>
 
   <h6 id="6.2">6.2. Manual</h6>
   <p>
     Automatic water finding will miss some waters that can be built manually.
     In order to find peaks that might be water molecules,
-    go to <code>Validate / Difference Map Peaks</code>
+    go to <code>Validate / Difference Map Peaks</code>.
+  </p>
+  <img src="img/difference_map_peaks.png" alt="Difference Map Peaks">
+  <p>
     Leave the default 5 r.m.s.d.
     but uncheck <code>Find Negative Peaks Also?</code>
     as peaks for missing waters will be positive.
     Use <code>.</code> and <code>,</code> to move up and down the list.
     The biggest difference map peaks
     are for the missing sulfur atoms in the methionine residues.
-    There are a lot of difference map peaks
-    that have already been built into
+    Keep looking until you find a peak for a water molecule
+    that hasn't been added automatically.
+    Most of the peaks will have been modelled already
     so it would be better to do this after another round of refinement.
-    However, peak 16 should be for a missing water molecule
-    that hasn't been added automatically
-    (if not then find an empty water peak).
-    Click <code>Place Atom At Pointer</code> then <code>OK</code>
+    Once you have found one,
+    click <code>Place Atom At Pointer</code> then <code>OK</code>
     to add a water molecule.
     You can also use the shortcut <code>w</code> on the keyboard.
     Press <code>x</code> to refine the water position.
     The waters will be added to a new molecule
     called <code>Pointer Atoms</code>
     so merge this into the main molecule before deleting it.
+  </p>
+
+  <p>
+    <b>Remember to save your improved model using
+    <code>File / Save Coordinates</code>.</b>
   </p>
 
   <hr>
