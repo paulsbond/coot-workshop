@@ -150,9 +150,31 @@
 
   <h6 id="5">5. Assign Sequence</h6>
   <p>
-    Let’s tell Coot that we have a sequence associated with this set of CA points. So,Extensions→Dock Sequence→Assign SequenceTurn on auto-fit of residuesSo when the file is assigned “Assign Closest fragment”.[Coot thinks for a several seconds while assigning sidechains, then goes aboutmutating and fitting the residues
-    What’s that you say? Coot didn’t do that? Well, that’s becauseyou mainchainmodel is too bad for Coot to recognize the sidechain positions. You need to reviewyou mainchain model and make sure sure that the CBs are in density and pointing
-    in the right direction. When you have improved you model sufficiently well, Cootwill apply the sequence to it using the above method.Change the Chain ID from “ “ to “A”.
+    One option for assigning the sequence is
+    to use <code>Mutate Residue Range</code>
+    but this is only useful if you know the identity for all the residues.
+    If we know the sequence for the whole chain
+    but have only built part of it
+    then we can also ask <i>Coot</i> to dock the sequence for us.
+    Go to <code>Extensions / Dock Sequence / Dock Sequence (py)</code>
+    to get the following window:
+  </p>
+  <img src="img/sequencing.png" alt="Sequencing">
+  <p>
+    Select <code>mainchain-forward</code> to be sequenced,
+    turn on <code>Auto-fit-refine after sequencing?</code>,
+    change <code>Chain ID</code> to <code>A</code>
+    then copy and paste the following sequence:
+    <pre><code>DVSGTVCLSA LPPEATDTLN LIASDGPFPY SQDGVVFQNR ESVLPTQSYG<br>YYHEYTVITP GARTRGTRRI ICGEATQEDY YTGDHYATFS LIDQTC</code></pre>
+    Click <code>Sequence closest fragment</code>.
+    <i>Coot</i> will think for several seconds while assigning the sequence
+    before trying to fit the side chains.
+    The sequencing may fail depending on how good the model is.
+    You need to make sure the CBs are in density
+    and pointing in the right direction
+    Use <code>Draw / Sequence View</code> to look for
+    alanine residues that don't match the sequence
+    (possibly at the termini).
   </p>
 
   <h6 id="6">6. Build Another Molecule</h6>
