@@ -113,7 +113,7 @@
     There are 96 residues to build and it takes about 15 minutes or so.
     If you make a mistake you can press <code>Undo</code>
     to move back one residue.
-    The last residue should be a cysteine that forms a disulphide bond.
+    The residue at the C-terminus is a cysteine that forms a disulphide bond.
     Click <code>Dismiss</code> on the baton controls when done.
     There may also be a molecule called <code>Baton Atom Guide Points</code>
     that needs deleting.
@@ -122,19 +122,16 @@
   <h6 id="4">4. Convert to Mainchain</h6>
   <p>
     Now we need to turn these CA positions into mainchain.
-    Use <code>Go To Atom</code> to centre on the first residue
-    of the <code>Baton Atoms</code> molecule.
-    Then use <code>Ca Zone -> Mainchain</code>
+    Use <code>Ca Zone -> Mainchain</code>
     in <code>Other Modelling Tools</code>
-    and click on the first CA.
+    and click one of the baton atoms.
     You will need to wait several seconds while it builds
     (note that you need at least 6 baton points for this to work).
-    Two new molecules will be created:
-    <code>mainchain-forwards</code> and <code>mainchain-backwards</code>
-    traced in different directions.
+    Two new molecules will be created that are traced in different directions.
     We know the forward direction is correct
     (see how much better the carbonyls fit)
-    so the other molecule can be deleted.
+    so <code>mainchain-backwards</code> and <code>Baton Atoms</code>
+    can be deleted.
   </p>
   <p>
     The backbone now needs to be tidied up.
@@ -145,6 +142,7 @@
     That refinement may have gone to quickly to make a note of problem areas.
     Use <code>Density fit analysis</code>
     and real space refinement to correct anything that's wrong.
+    Also use <code>Edit / Change Chain IDs</code> to label this chain as A.
   </p>
 
   <h6 id="5">5. Assign Sequence</h6>
@@ -171,10 +169,11 @@
     The sequencing may fail depending on how good the model is.
     You need to make sure the CBs are in density
     and pointing in the right direction
+    and the fragment is long enough.
     Use <code>Draw / Sequence View</code> to look for
     alanine residues that don't match the sequence
-    (possibly at the termini).
-    Use <code>Edit / Change Chain IDs</code> to label this chain as A.
+    (possibly at the termini)
+    and mutate them into the correct residues.
   </p>
 
   <h6 id="6">6. Build Another Molecule</h6>
@@ -186,23 +185,23 @@
     Then use <code>Place Helix Here</code>
     in <code>Other Modelling Tools</code>
     to place a helix in the density.
-    Make sure the placed helix fits the density well,
-    dock the sequence and fit the sidechains.
+    Make changes to the helix so that it fits the density well,
+    dock the sequence and fit the side chains.
   </p>
   <p>
     Now we will superpose a copy of the A chain onto this helix.
-    Now compare the Helix molecule with the previously built model.
-    Find matching start and end point on the helix and previous model.
-    LSQ fit a copy of the previous model on top of the Helix molecule
-    [Coot displayes a new molecule that almost fits the so-far unbuilt density.]
-    Let’s call this new chain, chain “B”
-    Now clean up the fit, first do a rigid body refinement of the whole new model
-    then an All Molecule stepped refine should make the fit nice
-    Merge the “B” chain into the “A” chain molecule above:
-    Calculate→Merge molecules→Append/Insert Molecule(s)
-    [Choose the most recent mainchain molecule]
-    into Molecule
-    [Choose the molecule of the A chain] → Merge.
+    Go to <code>Calculate / LSQ Superpose</code>:
+  </p>
+  <img src="img/superpose.png" alt="LSQ Superpose">
+  <p>
+    Make sure you are moving a copy of chain A onto the new helix.
+    A new molecule called <code>Copy_of_mainchain-forwards</code>
+    should appear that almost fits the density.
+    To clean up the fit with a rigid body refinement,
+    first click <code>Rigid Body Fit Zone</code> in the refinement toolbar
+    and then the N-terminus and C-terminus.
+    Then perform a stepped refinement of the whole molecule
+    and merge the the copy back into the original.
   </p>
   <p>
     Unfortunately, there is no slick way to make Coot rebuild ghosts
