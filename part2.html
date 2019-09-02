@@ -204,30 +204,25 @@
     and merge the the copy back into the original.
   </p>
   <p>
-    Unfortunately, there is no slick way to make Coot rebuild ghosts
-    for this composite molecule.
-    We need to write out the pdb file and read it in again -inelegant.
-    File→Save Coordinates,
-    [Choose the molecule that does now contains both the A and B chains]→
-    Select Filename
-    Pick a filename then useFile→OpenCoordinates
-    to read it in again.
-    Check the console as you do this,
-    Coot will tell you that there are NCS related molecules.
-    If it does this, we’re in business.
-    In the following, you will need to know
-    the first and last residue numbers inthe “A” chain.
-    Use the Go To Atom dialog to find them.
-    If ghosts appear, use:
-    Extensions→NCS. . .→Copy NCS Residue Range. . .
-    using “A”13as the Mas-ter Chain ID
-    then fill in the first and last residue numbers of theA chain.
-    [Coot builds the B chain as an NCS copy of the A chain]
+    Unfortunately, there is no slick way to make <i>Coot</i> rebuild ghosts
+    for this composite molecule that contains both the A and B chains.
+    We need to save the coordinates and open them again.
+    Check the console as you open the molecule,
+    <i>Coot</i> will tell you that there are NCS related molecules.
+    Now you can use the shortcut <code>o</code>
+    to quickly switch the view between NCS copies.
+    If you make changes to one chain and want them copied into other chains
+    you can do this using
+    <code>Copy NCS Residue Range</code> and <code>Copy NCS Chain</code>
+    under <code>Extensions / NCS</code>.
   </p>
 
   <h6 id="7">7. Finishing Touches</h6>
   <p>
-      Use NCS jumping (the ’O’ key) to see NCS differences.Now unmodelled blobs - like we did before.Find the ligand (3GP), merge it in.Refine using Refmac.Validate.Rebuild
+    If you want to finish the structure you've built from scratch,
+    go through rounds of validation and model building using Coot
+    and refinement using REFMAC in CCP4i2.
+    Then waters need to be built as well as a ligand (3GP).
   </p>
 
   <hr>
