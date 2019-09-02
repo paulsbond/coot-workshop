@@ -53,15 +53,14 @@
     <code>Extensions / Load tutorial model and data</code>
     to load the structure.
     It has two chains with 96 residues in each.
-    Start by going to the C-alpha of residue 2 in the A chain.
-    The idea is to build the complete A chain in the forward direction
-    and compare it to the real structure afterwards.
+    Start by going to the C-alpha (CA) of residue 2 in the A chain.
+    The idea is to build the complete A chain in the forward direction.
   </p>
   <p>
     Make a note of the position of the C-alpha in residue 1 then
     hide the molecule in the <code>Display Manager</code>
     until you have finished building, validating and refining.
-    It is also a good idea to hide the difference map
+    It is a good idea to also hide the difference map
     because we are not interested in the previously built model.
   </p>
   <p>
@@ -100,7 +99,7 @@
     to cycle through the points,
     <code>Lengthen</code> and <code>Shorten</code> to change the baton length,
     and <code>Accept</code> to place a CA and move onto the next residue.
-    If none of the probe points are suitable
+    If none of the guide points are suitable
     you can use <code>b</code> to toggle baton swivel mode.
     If you have installed the template keybindings
     (through <code>Extensions / Settings</code>)
@@ -126,7 +125,7 @@
     in <code>Other Modelling Tools</code>
     and click one of the baton atoms.
     You will need to wait several seconds while it builds
-    (note that you need at least 6 baton points for this to work).
+    (note that you need at least 6 residues for this to work).
     Two new molecules will be created that are traced in different directions.
     We know the forward direction is correct
     (see how much better the carbonyls fit)
@@ -186,7 +185,7 @@
     in <code>Other Modelling Tools</code>
     to place a helix in the density.
     Make changes to the helix so that it fits the density well,
-    dock the sequence and fit the side chains.
+    then dock the sequence and fit the side chains.
   </p>
   <p>
     Now we will superpose a copy of the A chain onto this helix.
@@ -195,11 +194,10 @@
   <img src="img/superpose.png" alt="LSQ Superpose">
   <p>
     Make sure you are moving a copy of chain A onto the new helix.
-    A new molecule called <code>Copy_of_mainchain-forwards</code>
-    should appear that almost fits the density.
+    A new molecule should appear that almost fits the density.
     To clean up the fit with a rigid body refinement,
     first click <code>Rigid Body Fit Zone</code> in the refinement toolbar
-    and then the N-terminus and C-terminus.
+    then click the N-terminus and C-terminus.
     Then perform a stepped refinement of the whole molecule
     and merge the the copy back into the original.
   </p>
@@ -211,7 +209,7 @@
     <i>Coot</i> will tell you that there are NCS related molecules.
     Now you can use the shortcut <code>o</code>
     to quickly switch the view between NCS copies.
-    If you make changes to one chain and want them copied into other chains
+    Also, if you make changes to one chain and want them copied into other chains
     you can do this using
     <code>Copy NCS Residue Range</code> and <code>Copy NCS Chain</code>
     under <code>Extensions / NCS</code>.
