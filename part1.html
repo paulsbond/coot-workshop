@@ -69,11 +69,11 @@
   <h3 id="1">1. Introduction</h3>
 
   <p>
-    <i>Coot</i> is a program for macromolecular model building,
+    Coot is a program for macromolecular model building,
     model completion and validation
     (<a href="https://doi.org/10.1107/S0907444910007493">Emsley <i>et al.</i> 2010</a>).
     This workshop will give step-by-step instructions on
-    how to use <i>Coot</i> to complete a molecular replacement (MR) solution.
+    how to use Coot to complete a molecular replacement (MR) solution.
     The structure we are trying to build is
     <a href="https://www.ebi.ac.uk/pdbe/entry/pdb/5eg2">5EG2</a>,
     a human SET7/9 mutant in complex with S-adenosyl-l-homocysteine and
@@ -88,17 +88,17 @@
     This is an older selenomethionine derivative of human SET7/9
     solved at 1.7 &angst; resolution
     (<a href="https://doi.org/10.1093/emboj/cdg025">Kwon <i>et al.</i> 2003</a>).
-    The model was processed using <i>phaser.sculptor</i>,
+    The model was processed using phaser.sculptor,
     which trims unaligned regions using a sequence alignment
     and truncates side chains that differ between the model and target
     (pruning was not really needed in this case, 
     but in general it is good practice).
-    MR was done using <i>phaser</i>
-    through the <i>CCP4i2</i> Basic Molecular Replacement task.
-    This was followed by <i>csymmatch</i>
+    MR was done using Phaser
+    through the CCP4i2 Basic Molecular Replacement task.
+    This was followed by csymmatch
     to move the MR solution to the same origin as the deposited structure
-    and finally refinement using <i>REFMAC</i>.
-    Click the following files produced by <i>REFMAC</i>
+    and finally refinement using REFMAC.
+    Click the following files produced by REFMAC
     to download them to your computer:
   </p>
   <ul>
@@ -123,11 +123,11 @@
   <h6 id="2.1">2.1. Starting Coot</h6>
   <p>
     Open a terminal and type <code>coot</code>.
-    The <i>Coot</i> window should appear.
+    The Coot window should appear.
     For this to work, the coot executable should be in your path.
   </p>
   <p>
-    The <i>Coot</i> window should look something like this:
+    The Coot window should look something like this:
   </p>
   <img src="img/window.png" alt="Coot Window">
   <p>
@@ -143,11 +143,11 @@
 
   <h6 id="2.2">2.2. Opening Files</h6>
   <p>
-    Files that you want to open in <i>Coot</i>
+    Files that you want to open in Coot
     can also be passed as command line arguments:
     <pre><code>coot refined_model.pdb refined_mode.mtz</code></pre>
     PDB and mmCIF format coordinate files can be opened in this way,
-    as well as MTZ files from programs such as <i>REFMAC</i>
+    as well as MTZ files from programs such as REFMAC
     where the column labels for the 2mFo-DFc and mFo-DFc maps are known.
     Instead, we will open our files manually.
     Choose <code>File / Open Coordinates</code>
@@ -195,7 +195,7 @@
     and the <code>Phases</code> column to <code>PHDELWT</code>.
     The <code>Is a Difference Map</code> checkbox
     needs to be checked (should happen automatically)
-    so that <i>Coot</i> will treat this as a difference map.
+    so that Coot will treat this as a difference map.
     Click <code>OK</code>.
   </p>
   <p>
@@ -339,7 +339,7 @@
     Density levels are specified either
     as absolute values (e/&angst;<sup>3</sup>)
     or as RMSD values.
-    <i>Coot</i> will try to pick sensible defaults on opening,
+    Coot will try to pick sensible defaults on opening,
     e.g. 0.41 e/&angst;<sup>3</sup> (1.5 RMSD) for our 2mFo-DFc map
     and 0.39 e/&angst;<sub>3</sub> (2.98 RMSD) for our mFo-DFc map.
     One click will change the contour level by 0.1 RMSD.
