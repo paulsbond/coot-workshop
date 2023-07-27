@@ -32,23 +32,26 @@
     <a href="part1.html">part 1</a> of the workshop.
   </p>
   <p>
-    When automatic building fails,
-    typically because the resolution limit of your data is too low,
+    Due to advances in structure prediction (e.g. AlphaFold),
+    building a model from scratch is very rarely needed.
+    However, if structure prediction and automatic building both fail
     then building the molecule "by hand" may be the only way to proceed.
-    Recognizing the shape of main-chain and side-chain densities is valuable
-    and this tutorial aims to introduce these to you.
+    It is also a good exercise to familiarise yourself
+    with the shape of main-chain and side-chain density.
+  </p>
+  <p>
     Note that this tutorial map is an easy map to build into,
     the side chains are (mostly) clear.
     Using just a map and a sequence, we will attempt to generate a model.
     This model can then be validated and refined with Refmac for several rounds.
     With some experience you should be able to get
-    an R-factor of less than 20% in less than 30 minutes.
+    an R-factor better than 20% in less than 30 minutes.
   </p>
 
   <h6 id="2">2. Starting</h6>
   <p>
     Open <code>Coot</code>, then click
-    <code>Extensions / Load tutorial model and data</code>
+    <code>Calculate / Load Tutorial Model and Data</code>
     to load the structure.
     It has two chains with 96 residues in each.
     Start by going to the C-alpha (CA) of residue 2 in the A chain.
@@ -58,7 +61,7 @@
     Make a note of the position of the C-alpha in residue 1 then
     hide the molecule in the <code>Display Manager</code>
     until you have finished building, validating and refining.
-    It is a good idea to also hide the difference map
+    You should also hide the difference map
     because we are not interested in the previously built model.
   </p>
   <p>
@@ -84,12 +87,12 @@
     <div class="one-half column"><img src="img/baton_controls.png" alt="Baton Controls"></div>
   </div>
   <p>
-    Remember, when you start, you are placing a CA at the baton tip
+    When you start, you are placing a CA at the baton tip
     for residue 1 (the N-terminus).
     After placing CA for residue 1,
     you will get a choice of positions for residue 2,
     which is currently at the centre of the view.
-    This might seem that you are "double-backing" on yourself,
+    This might seem that you are doubling back on yourself,
     which can be confusing the first time,
     but it is useful for extending existing chains.
   </p>
@@ -101,9 +104,9 @@
     If none of the guide points are suitable
     you can use <code>b</code> to toggle baton swivel mode.
     If you have installed the template keybindings
-    (through <code>Extensions / Settings</code>)
+    (through <code>Edit / Settings</code>)
     then you can use the shortcut
-    <code>A</code> (<code>Shift</code><code>a</code>)
+    <code>A</code> (<code>Shift-a</code>)
     to accept the baton position.
   </p>
   <p>
@@ -133,12 +136,12 @@
   </p>
   <p>
     The backbone now needs to be tidied up.
-    Go to <code>Extensions / All Molecule / Stepped Refine</code>,
+    Go to <code>Calculate / All Molecule / Stepped Refine</code>,
     pick <code>mainchain-forwards</code>
     and watch it as it goes.
     Is it making mistakes?
     That refinement may have gone to quickly to make a note of problem areas.
-    Use <code>Density fit analysis</code>
+    Use <code>Validate / Density fit analysis</code>
     and real space refinement to correct anything that's wrong.
     Also use <code>Edit / Change Chain IDs</code> to label this chain as A.
   </p>
@@ -150,41 +153,44 @@
     but this is only useful if you know the identity for all the residues.
     If we know the sequence for the whole chain
     but have only built part of it
-    then we can also ask <i>Coot</i> to dock the sequence for us.
-    Go to <code>Extensions / Dock Sequence / Dock Sequence (py)</code>
+    then we can also ask <i>Coot</i> to assign the sequence for us.
+    Go to <code>Calculate / Assign Sequence / Assign Sequence (py)</code>
     to get the following window:
   </p>
   <img src="img/sequencing.png" alt="Sequencing">
   <p>
-    Select <code>mainchain-forward</code> to be sequenced,
+    Select <code>mainchain-forwards</code> to be sequenced,
     turn on <code>Auto-fit-refine after sequencing?</code>,
     change <code>Chain ID</code> to <code>A</code>
     then copy and paste the following sequence:
-    <pre><code>DVSGTVCLSA LPPEATDTLN LIASDGPFPY SQDGVVFQNR ESVLPTQSYG<br>YYHEYTVITP GARTRGTRRI ICGEATQEDY YTGDHYATFS LIDQTC</code></pre>
-    Click <code>Sequence closest fragment</code>.
-    <i>Coot</i> will think for several seconds while assigning the sequence
-    before trying to fit the side chains.
-    The sequencing may fail depending on how good the model is.
-    You need to make sure the CBs are in density
-    and pointing in the right direction
-    and the fragment is long enough.
-    Use <code>Draw / Sequence View</code> to look for
-    alanine residues that don't match the sequence
-    (possibly at the termini)
-    and mutate them into the correct residues.
+  <pre><code>DVSGTVCLSA LPPEATDTLN LIASDGPFPY SQDGVVFQNR ESVLPTQSYG<br>YYHEYTVITP GARTRGTRRI ICGEATQEDY YTGDHYATFS LIDQTC</code></pre>
+  Click <code>Sequence closest fragment</code>.
+  <i>Coot</i> will think for several seconds while assigning the sequence
+  before trying to fit the side chains.
+  The sequencing may fail depending on how good the model is.
+  You need to make sure the CBs are in density
+  and pointing in the right direction
+  and the fragment is long enough.
+  Use <code>Draw / Sequence View</code> to look for
+  alanine residues that don't match the sequence
+  (possibly at the termini)
+  and mutate them into the correct residues
+  (or delete them if they are extra).
   </p>
 
   <h6 id="6">6. Build Another Molecule</h6>
   <p>
     Now we need to build another molecule (the NCS related copy).
     We will first just build a small part.
-    Using the map skeleton, search around to find a helix
-    not already built (and not symmetry related to the model already built).
+    Search around to find a helix not already built
+    (and not a crystallographic symmetry copy of the chain already built).
+    This may be easier using the map skeleton with the side chains pruned.
     Then use <code>Place Helix Here</code>
     in <code>Other Modelling Tools</code>
     to place a helix in the density.
     Make changes to the helix so that it fits the density well,
-    then dock the sequence and fit the side chains.
+    then assign the sequence (and residue numbers) and fit the side chains
+    using the <code>Assign Sequence (py)</code> tool again.
   </p>
   <p>
     Now we will superpose a copy of the A chain onto this helix.
@@ -197,13 +203,12 @@
     To clean up the fit with a rigid body refinement,
     first click <code>Rigid Body Fit Zone</code> in the refinement toolbar
     then click the N-terminus and C-terminus.
-    Then perform a stepped refinement of the whole molecule
-    and merge the the copy back into the original.
+    Then perform a stepped refinement of the whole molecule and merge the the copy
+    back into the original <code>mainchain-forwards</code> molecule.
   </p>
   <p>
-    Unfortunately, there is no slick way to make <i>Coot</i> rebuild ghosts
-    for this composite molecule that contains both the A and B chains.
-    We need to save the coordinates and open them again.
+    To make Coot detect that the A and B chains are NCS copies of each other,
+    save the <code>mainchain-forwards</code> coordinates and open them again.
     Check the console as you open the molecule,
     <i>Coot</i> will tell you that there are NCS related molecules.
     Now you can use the shortcut <code>o</code>
@@ -211,7 +216,7 @@
     Also, if you make changes to one chain and want them copied into other chains
     you can do this using
     <code>Copy NCS Residue Range</code> and <code>Copy NCS Chain</code>
-    under <code>Extensions / NCS</code>.
+    under <code>Calculate / NCS Tools</code>.
   </p>
 
   <h6 id="7">7. Finishing Touches</h6>
